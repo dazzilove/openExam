@@ -1,3 +1,184 @@
-<b>sdfdsf</b>
-<div>sdfsfdf</div>
-<div>aaa</div>
+<!doctype html>  
+<html lang="ko"> 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <title>대한민국한자급수자격검정시험 - 91회</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <style>
+            .hanja {
+                font-size: x-large;
+            }
+        </style>
+        <script>
+            const list = [
+{ seq:'1', hanja:'九', mean:'아홉', sound:'구'}, 
+{ seq:'2', hanja:'金', mean:'쇠', sound:'금'}, 
+{ seq:'3', hanja:'南', mean:'남녘', sound:'남'}, 
+{ seq:'4', hanja:'男', mean:'사내', sound:'남'}, 
+{ seq:'5', hanja:'女', mean:'여자', sound:'녀'}, 
+{ seq:'6', hanja:'東', mean:'동녘', sound:'동'}, 
+{ seq:'7', hanja:'六', mean:'여섯', sound:'륙'}, 
+{ seq:'8', hanja:'母', mean:'어머니', sound:'모'}, 
+{ seq:'9', hanja:'木', mean:'나무', sound:'목'}, 
+{ seq:'10', hanja:'門', mean:'문', sound:'문'}, 
+{ seq:'11', hanja:'父', mean:'아버지', sound:'부'}, 
+{ seq:'12', hanja:'北', mean:'북녘', sound:'북'}, 
+{ seq:'13', hanja:'四', mean:'넉', sound:'사'}, 
+{ seq:'14', hanja:'三', mean:'석', sound:'삼'}, 
+{ seq:'15', hanja:'西', mean:'서녘', sound:'서'}, 
+{ seq:'16', hanja:'水', mean:'물', sound:'수'}, 
+{ seq:'17', hanja:'十', mean:'열', sound:'십'}, 
+{ seq:'18', hanja:'五', mean:'다섯', sound:'오'}, 
+{ seq:'19', hanja:'月', mean:'달', sound:'월'}, 
+{ seq:'20', hanja:'二', mean:'두', sound:'이'}, 
+{ seq:'21', hanja:'人', mean:'사람', sound:'인'}, 
+{ seq:'22', hanja:'日', mean:'날', sound:'일'}, 
+{ seq:'23', hanja:'一', mean:'한', sound:'일'}, 
+{ seq:'24', hanja:'子', mean:'아들', sound:'자'}, 
+{ seq:'25', hanja:'弟', mean:'아우', sound:'제'}, 
+{ seq:'26', hanja:'七', mean:'일곱', sound:'칠'}, 
+{ seq:'27', hanja:'土', mean:'흙', sound:'토'}, 
+{ seq:'28', hanja:'八', mean:'여덟', sound:'팔'}, 
+{ seq:'29', hanja:'兄', mean:'맏', sound:'형'}, 
+{ seq:'30', hanja:'火', mean:'불', sound:'화'}, 
+{ seq:'31', hanja:'江', mean:'강', sound:'강'}, 
+{ seq:'32', hanja:'口', mean:'입', sound:'구'}, 
+{ seq:'33', hanja:'內', mean:'안', sound:'내'}, 
+{ seq:'34', hanja:'年', mean:'해', sound:'년'}, 
+{ seq:'35', hanja:'大', mean:'큰', sound:'대'}, 
+{ seq:'36', hanja:'目', mean:'눈', sound:'목'}, 
+{ seq:'37', hanja:'白', mean:'흰', sound:'백'}, 
+{ seq:'38', hanja:'山', mean:'메(뫼)', sound:'산'}, 
+{ seq:'39', hanja:'上', mean:'위', sound:'상'}, 
+{ seq:'40', hanja:'小', mean:'작을 ', sound:'소'}, 
+{ seq:'41', hanja:'手', mean:'손', sound:'수'}, 
+{ seq:'42', hanja:'外', mean:'바깥', sound:'외'}, 
+{ seq:'43', hanja:'右', mean:'오른', sound:'우'}, 
+{ seq:'44', hanja:'入', mean:'들', sound:'입'}, 
+{ seq:'45', hanja:'足', mean:'발', sound:'족'}, 
+{ seq:'46', hanja:'左', mean:'왼', sound:'좌'}, 
+{ seq:'47', hanja:'中', mean:'가운데', sound:'중'}, 
+{ seq:'48', hanja:'靑', mean:'푸를', sound:'청'}, 
+{ seq:'49', hanja:'出', mean:'날', sound:'출'}, 
+{ seq:'50', hanja:'下', mean:'아래 ', sound:'하'}
+            ];
+
+            window.onload = function() {
+                initViewAll();
+            }
+
+            function showMenu(menuId) {
+                document.querySelectorAll(".viewArea").forEach(el => el.style.display = "none");
+                document.querySelector("#" + menuId).style.display = "block";
+
+                document.querySelectorAll(".nav-link").forEach(el => el.className = "nav-link");
+                if (menuId == "viewTest") {
+                    document.querySelector("#btnTestStart").style.display = "block";
+                    document.querySelector(".testCard").style.display = "none";
+                }
+            }
+
+            function initViewAll() {
+                let tbodyObj = document.querySelector("#viewAll table tbody");
+                tbodyObj.innerHTML = "";
+                let allTrText = "";
+                list.forEach(data => {
+                    let trText = "<tr>";
+                    trText += `<td>${data.seq}</td>`;
+                    trText += `<td class="hanja">${data.hanja}</td>`;
+                    trText += `<td>${data.mean}</td>`;
+                    trText += `<td>${data.sound}</td>`;
+                    trText += "</tr>";
+                    allTrText += trText;
+                });
+                tbodyObj.innerHTML = allTrText;
+            }
+
+            function handleBtnTestStart(that) {
+                resetTestCard();
+            }
+
+            let testList = [];
+            function resetTestCard() {
+                document.querySelector("#btnTestStart").style.display = "none";
+                document.querySelector(".testCard").style.display = "block";
+                document.querySelector("#btnTestRestart").style.display = "block";
+                testList = getRandomList();
+            }
+
+            function getRandomList() {
+                return [];
+            }
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">대한검정회 한자급수시험 - 91회 - 7급</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" data-menu-id="viewAll" href="javascript:showMenu('viewAll')">전체보기</a>
+                    <a class="nav-link" data-menu-id="viewTest" href="javascript:showMenu('viewTest')">테스트</a>
+                </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container" style="padding: 10px;">
+            <div class="viewArea" id="viewAll" style="display: block;">
+                <h1 class="display-6">전체보기</h1>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">한자</th>
+                        <th scope="col">뜻</th>
+                        <th scope="col">음</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="viewArea" id="viewTest" style="display: none;">
+                <h1 class="display-6">테스트</h1>
+                <div class="card border-dark testCard" style="display: none;">
+                  <div class="card-body">
+                    <h5 class="card-title" style="text-align: center; font-size: 400%;">九</h5>
+                    <p class="card-text" style="text-align: center;">
+                        <div class="list-group">
+                            <label class="list-group-item">
+                              <input class="form-check-input me-1" type="radio" value="">
+                              First checkbox
+                            </label>
+                            <label class="list-group-item">
+                              <input class="form-check-input me-1" type="radio" value="">
+                              Second checkbox
+                            </label>
+                            <label class="list-group-item">
+                              <input class="form-check-input me-1" type="radio" value="">
+                              Third checkbox
+                            </label>
+                          </div>
+                    </p>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="button">NEXT</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-primary" type="button" id="btnTestStart" onclick="handleBtnTestStart(this)">START</button>
+                <button class="btn btn-outline-warning" type="button" id="btnTestRestart" style="display: none; margin-top: 5px;">RESTART</button>
+                <button class="btn btn-outline-primary" type="button" id="btnTestEnd" style="display: none; margin-top: 5px;">END</button>
+            </div>
+        </div>
+        <div style="text-align:center; height: 45px; padding-top: 10px; background-color: #eeeeee;">
+            시험일시 : 2021년 05월 29일(토) 오후 1:40
+        </div>
+    </body>
+</html>
