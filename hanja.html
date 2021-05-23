@@ -163,7 +163,7 @@
                     const itemIdx = nowExamList.findIndex(el => el.seq == item.seq);
 
                     let questions = [];
-                    let tempList = Array.prototype.slice.call(examList);
+                    let tempList = Array.prototype.slice.call(nowExamList);
 
                     questions.push(item);
                     tempList.splice(itemIdx, 1);
