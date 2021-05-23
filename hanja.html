@@ -34,6 +34,7 @@
             let nowExamIdx = 0;
 
             window.onload = function() {
+                console.log(getJsonFilePath());
                 fetch(getJsonFilePath())
                     .then(response => response.json())
                     .then(json => {
@@ -253,9 +254,8 @@
 
             function getJsonFilePath() {
                 const version = getExamVersion();
-                const path = `${location.origin}/openExam/${version}.json`;
-                console.log(path);
-                return path;
+                const path = location.pathname.replace("/hanja.html", "/examJsonData/" + version + ".json");
+                return location.origin + path;
             }
 
             function getExamVersion() {
