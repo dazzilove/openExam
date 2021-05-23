@@ -10,6 +10,21 @@
             .hanja {
                 font-size: x-large;
             }
+            .resultTitle {
+                text-align: center;
+                font-size: larger;
+                text-decoration: underline;
+            }
+            .resultReport {
+                text-align: center; 
+                padding-bottom: 10px;
+            }
+            .footer {
+                text-align:center; 
+                height: 45px; 
+                padding-top: 10px; 
+                background-color: #eeeeee;
+            }
         </style>
         <script>
             const list = [
@@ -62,8 +77,11 @@
 { seq:'47', hanja:'中', mean:'가운데', sound:'중'}, 
 { seq:'48', hanja:'靑', mean:'푸를', sound:'청'}, 
 { seq:'49', hanja:'出', mean:'날', sound:'출'}, 
-{ seq:'50', hanja:'下', mean:'아래 ', sound:'하'}
+{ seq:'50', hanja:'下', mean:'아래', sound:'하'}
             ];
+            const listSize = list.length;
+            let examList = [];
+            let examIdx = 0;
 
             window.onload = function() {
                 initViewAll();
@@ -73,10 +91,8 @@
                 document.querySelectorAll(".viewArea").forEach(el => el.style.display = "none");
                 document.querySelector("#" + menuId).style.display = "block";
 
-                document.querySelectorAll(".nav-link").forEach(el => el.className = "nav-link");
-                if (menuId == "viewTest") {
-                    document.querySelector("#btnTestStart").style.display = "block";
-                    document.querySelector(".testCard").style.display = "none";
+                if (menuId == "viewAll") {
+                    document.querySelector("#btnExamStart").style.display = "block";
                 }
             }
 
@@ -96,41 +112,207 @@
                 tbodyObj.innerHTML = allTrText;
             }
 
-            function handleBtnTestStart(that) {
-                resetTestCard();
+            function handleBtnExamStart(that) {
+                showMenu("viewExam");
+                resetExamCard();
+                startPresentExamCard();
             }
 
-            let testList = [];
-            function resetTestCard() {
-                document.querySelector("#btnTestStart").style.display = "none";
-                document.querySelector(".testCard").style.display = "block";
-                document.querySelector("#btnTestRestart").style.display = "block";
-                testList = getRandomList();
+            function handleBtnExamNext(that) {
+                let answer = "";
+                document.getElementsByName("question").forEach(el => {
+                    if (el.checked) {
+                        answer = el.value;
+                    }
+                });
+                if (answer == "") {
+                    alert("답을 선택하세요.");
+                    return;
+                }
+
+                let item = examList[examIdx-1];
+                item.answer = answer;
+                item.result = (getRightAnswer(item) == answer) ? "O" : "X";
+
+                presentExamCard();
             }
 
-            function getRandomList() {
-                return [];
+            function handleBtnExamResultCopy() {
+                let copyText = "대한검정회 한자급수 - 7급" + "\n";
+                copyText += "-" + document.querySelector("#viewResult .resultTitle").innerText + "\n";
+                copyText += "-" + document.querySelector("#viewResult .resultReport").innerText + "\n";
+                let tempExamList = Array.prototype.slice.call(examList);
+                tempExamList.sort((a, b) => a.result < b.result ? -1 : a.result > b.result ? 1 : 0);
+                tempExamList.forEach((item, index) => {
+                    let result = item.result; 
+                    let failAnswerText = getFailAnswerText(item);
+                    copyText += `[${result}] ${index+1}. ${item.hanja} ${getRightAnswer(item)} ${failAnswerText} \n`;
+                });
+
+                const t = document.createElement("textarea");
+                document.body.appendChild(t);
+                t.value = copyText;
+                t.select();
+                document.execCommand('copy');
+                document.body.removeChild(t);
+
+                let lastCopyText = "";
+                lastCopyText += "아래의 텍스트가 복사되었습니다.\n";
+                lastCopyText += "원하는곳에 붙여넣기 하세요. ^^\n";
+                lastCopyText += "=======================\n";
+                lastCopyText += copyText;
+                alert(lastCopyText);
+            }      
+
+            function getRightAnswer(item) {
+                return item.mean + " " + item.sound;
+            }
+
+            function handleBtnExamEnd(that) {
+                showMenu("viewResult");
+                presentResult();
+            }
+
+            function handleBtnViewAll(that) {
+                showMenu("viewAll");
+            }
+
+            function resetExamCard() {
+                document.querySelector("#btnExamStart").style.display = "none";
+                document.querySelector(".examCard").style.display = "block";
+                createExamList();
+            }
+
+            function startPresentExamCard() {
+                examIdx = 0;
+                presentExamCard();
+            }
+
+            function presentExamCard() {
+                if (examIdx == listSize) {
+                    showMenu("viewEnd");
+                    return;
+                }
+                const item = examList[examIdx];
+                document.querySelector(".examCard .card-title").innerHTML = item.hanja;                
+                createQuestionText(document.querySelector(".examCard .questions"), item);
+
+                document.querySelector("#btnExamNext").innerText = `(${examIdx+1} / ${examList.length}) 다음`;
+
+                examIdx++;
+            }
+
+            function createQuestionText(el, item) {
+                let questionsText = "";
+                item.questions.forEach(question => {
+                    questionsText += `<label class="list-group-item examQuestion">
+                                            <input class="form-check-input me-1" type="radio" name="question" value="${question}">
+                                            ${question}
+                                        </label>`;
+                });
+                el.innerHTML = "";
+                el.innerHTML = questionsText;
+            }
+
+            function presentResult() {
+                document.querySelector("#viewResult .resultTitle").innerHTML = getFormatDate(new Date());
+
+                const okResultCnt = examList.filter(item => item.result == "O").length;
+                const failResultCnt = examList.filter(item => item.result == "X").length;
+                const resultReportText = `Total: ${examList.length}, Ok: ${okResultCnt}, Fail: ${failResultCnt}`;
+                document.querySelector("#viewResult .resultReport").innerHTML = resultReportText;
+
+                document.querySelector("#viewResult .resultList .list-group").innerHTML = "";
+                examList.forEach((item, idx) => createResultLine(item, idx+1));
+            }
+
+            function getFormatDate(date) {
+                let year = date.getFullYear();
+                let month = getNumberToTwoLengthText(date.getMonth() + 1);
+                let day = getNumberToTwoLengthText(date.getDate());
+                let hours = getNumberToTwoLengthText(date.getHours());
+                let minutes = getNumberToTwoLengthText(date.getMinutes());
+                let secondes = getNumberToTwoLengthText(date.getSeconds());
+                return `${year}.${month}.${day} ${hours}:${minutes}:${secondes}`;
+            }
+
+            function getNumberToTwoLengthText(numberVal) {
+                return (numberVal >= 10) ? numberVal : "0" + numberVal;
+            }
+
+            function createResultLine(item, idx) {
+                const result = item.result;
+                const failAnswerText = getFailAnswerText(item);
+                const resultBadgeClass = (result == "X") ? "bg-danger" : "bg-success";
+                const resultLine =  `<li class="list-group-item d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <div class="fw-bold">${item.hanja} <span style="color:#777777;">${getRightAnswer(item)}</span></div>
+                                            <span style="color:#aaaaaa;">${failAnswerText}</span>
+                                        </div>
+                                        <span class="badge ${resultBadgeClass}">${result}</span>
+                                    </li>`;
+                document.querySelector("#viewResult .resultList .list-group").innerHTML +=  resultLine;
+            }
+
+            function getFailAnswerText(item) {
+                return (item.result == "X") ?  `(선택한 답: ${item.answer})` : "";
+            }
+
+            function createExamList() {
+                examList = []; // 재응시 관련 초기화
+                examList = Array.prototype.slice.call(list);
+                shuffle(examList);
+                createQuestions();
+            }
+
+            function createQuestions() {
+                examList.forEach(item => {
+                    const itemIdx = examList.findIndex(el => el.seq == item.seq);
+                    let tempList = Array.prototype.slice.call(list);
+                    tempList.splice(itemIdx, 1);
+                    shuffle(tempList);
+
+                    let questions = [];
+                    questions.push(item);
+                    questions.push(tempList[0]);
+                    questions.push(tempList[1]);
+                    questions.push(tempList[2]);
+                    shuffle(questions);
+
+                    item.questions = [
+                        questions[0].mean + " " + questions[0].sound,
+                        questions[1].mean + " " + questions[1].sound,
+                        questions[2].mean + " " + questions[2].sound,
+                        questions[3].mean + " " + questions[3].sound,
+                    ];                    
+                });
+            }
+
+            function shuffle(a) { 
+                var j, x, i; 
+                for (i = a.length; i; i -= 1) { 
+                    j = Math.floor(Math.random() * i); 
+                    x = a[i - 1]; 
+                    a[i - 1] = a[j]; 
+                    a[j] = x; 
+                } 
             }
         </script>
     </head>
-    <body>
+    <body id="capture">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">대한검정회 한자급수시험 - 91회 - 7급</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" data-menu-id="viewAll" href="javascript:showMenu('viewAll')">전체보기</a>
-                    <a class="nav-link" data-menu-id="viewTest" href="javascript:showMenu('viewTest')">테스트</a>
-                </div>
-                </div>
+                <a class="navbar-brand" href="#">대한검정회 한자급수 - 7급</a>
+                <button 
+                    class="btn btn-outline-primary" 
+                    type="button" 
+                    id="btnExamStart" 
+                    onclick="handleBtnExamStart(this)">시험보기</button>
             </div>
         </nav>
         <div class="container" style="padding: 10px;">
+
             <div class="viewArea" id="viewAll" style="display: block;">
-                <h1 class="display-6">전체보기</h1>
                 <table class="table">
                     <thead>
                       <tr>
@@ -142,43 +324,94 @@
                     </thead>
                     <tbody>
                     </tbody>
-                  </table>
+                </table>
             </div>
-            <div class="viewArea" id="viewTest" style="display: none;">
-                <h1 class="display-6">테스트</h1>
-                <div class="card border-dark testCard" style="display: none;">
+
+            <div class="viewArea" id="viewExam" style="display: none;">
+                <div class="card border-dark examCard" style="display: none;">
                   <div class="card-body">
-                    <h5 class="card-title" style="text-align: center; font-size: 400%;">九</h5>
-                    <p class="card-text" style="text-align: center;">
-                        <div class="list-group">
-                            <label class="list-group-item">
-                              <input class="form-check-input me-1" type="radio" value="">
-                              First checkbox
-                            </label>
-                            <label class="list-group-item">
-                              <input class="form-check-input me-1" type="radio" value="">
-                              Second checkbox
-                            </label>
-                            <label class="list-group-item">
-                              <input class="form-check-input me-1" type="radio" value="">
-                              Third checkbox
-                            </label>
-                          </div>
+                    <h5 class="card-title" style="text-align: center; font-size: 400%;"></h5>
+                    <p class="card-text">
+                        <div class="list-group questions"></div>
                     </p>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-primary" type="button">NEXT</button>
+                    <div class="d-grid">
+                        <button 
+                            class="btn btn-primary" 
+                            type="button"
+                            id="btnExamNext"
+                            onclick="handleBtnExamNext(this)">다음</button>
                     </div>
                   </div>
                 </div>
+                <div class="d-grid">
+                    <button 
+                        class="btn btn-outline-warning" 
+                        type="button" 
+                        style="margin-top: 5px;"
+                        onclick="handleBtnExamStart(this)">재시험</button>
+                    <button 
+                        class="btn btn-outline-success" 
+                        type="button" 
+                        style="margin-top: 5px;"
+                        onclick="handleBtnViewAll(this)">한자 목록 보기</button>
+                </div>
             </div>
-            <div class="d-grid gap-2">
-                <button class="btn btn-outline-primary" type="button" id="btnTestStart" onclick="handleBtnTestStart(this)">START</button>
-                <button class="btn btn-outline-warning" type="button" id="btnTestRestart" style="display: none; margin-top: 5px;">RESTART</button>
-                <button class="btn btn-outline-primary" type="button" id="btnTestEnd" style="display: none; margin-top: 5px;">END</button>
+
+            <div class="viewArea" id="viewEnd" style="display: none;">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center; font-size: 200%;">
+                            "완료"
+                        </h5>
+                        <p class="card-text" style="text-align: center;">
+                            모든 문제를 풀었습니다.<br>
+                            결과를 확인하세요.
+                        </p>
+                        <div class="d-grid">
+                            <button 
+                                class="btn btn-primary" 
+                                type="button"
+                                id="btnExamEnd"
+                                onclick="handleBtnExamEnd(this)">결과확인</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewArea" id="viewResult" style="display: none;">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="resultTitle"></div>
+                        <div class="resultReport"></div>
+                        <div class="resultList">
+                            <ul class="list-group list-group-numbered"></ul>
+                        </div>
+                        <div class="d-grid" style="margin-top: 10px;">
+                            <button 
+                                class="btn btn-primary" 
+                                type="button" 
+                                id="btnExamResultCopy" 
+                                onclick="handleBtnExamResultCopy(this)">결과 복사</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button 
+                        class="btn btn-outline-warning" 
+                        type="button" 
+                        style="margin-top: 5px;"
+                        onclick="handleBtnExamStart(this)">재시험</button>
+                    <button 
+                        class="btn btn-outline-success" 
+                        type="button" 
+                        style="margin-top: 5px;"
+                        onclick="handleBtnViewAll(this)">한자 목록 보기</button>
+                </div>
             </div>
         </div>
-        <div style="text-align:center; height: 45px; padding-top: 10px; background-color: #eeeeee;">
+        <div class="footer">
             시험일시 : 2021년 05월 29일(토) 오후 1:40
         </div>
+
     </body>
 </html>
