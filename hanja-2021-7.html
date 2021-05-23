@@ -87,7 +87,7 @@
                 initViewAll();
             }
 
-            function showMenu(menuId) {
+            function showHideViewArea(menuId) {
                 document.querySelectorAll(".viewArea").forEach(el => el.style.display = "none");
                 document.querySelector("#" + menuId).style.display = "block";
 
@@ -113,7 +113,7 @@
             }
 
             function handleBtnExamStart(that) {
-                showMenu("viewExam");
+                showHideViewArea("viewExam");
                 resetExamCard();
                 startPresentExamCard();
             }
@@ -167,12 +167,12 @@
             }
 
             function handleBtnExamEnd(that) {
-                showMenu("viewResult");
+                showHideViewArea("viewResult");
                 presentResult();
             }
 
             function handleBtnViewAll(that) {
-                showMenu("viewAll");
+                showHideViewArea("viewAll");
             }
 
             function resetExamCard() {
@@ -188,7 +188,7 @@
 
             function presentExamCard() {
                 if (examIdx == listSize) {
-                    showMenu("viewEnd");
+                    showHideViewArea("viewEnd");
                     return;
                 }
                 const item = examList[examIdx];
