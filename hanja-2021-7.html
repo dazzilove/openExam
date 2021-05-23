@@ -156,12 +156,10 @@
                 document.execCommand('copy');
                 document.body.removeChild(t);
 
-                let lastCopyText = "";
-                lastCopyText += "아래의 텍스트가 복사되었습니다.\n";
-                lastCopyText += "원하는곳에 붙여넣기 하세요. ^^\n";
-                lastCopyText += "=======================\n";
-                lastCopyText += copyText;
-                alert(lastCopyText);
+                let alertText = "";
+                alertText += "결과가 복사되었습니다.\n";
+                alertText += "원하는곳에 붙여넣기 하세요. ^^";
+                alert(alertText);
             }      
 
             function getRightAnswer(item) {
