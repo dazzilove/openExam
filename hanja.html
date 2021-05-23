@@ -28,7 +28,7 @@
         </style>
         <script>
             let examTitle = "";
-            let examDate = "";
+            let examDate = "시험일시 : 2021년 05월 29일(토) 오후 1:40";
             let examList = [];
             let nowExamList = [];
             let nowExamIdx = 0;
@@ -39,7 +39,6 @@
                     .then(response => response.json())
                     .then(json => {
                         examTitle = json.title;
-                        examDate = json.date;
                         examList = [];
                         examList = json.list;
                         initExamBasicInfo();
