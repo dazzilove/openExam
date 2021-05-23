@@ -290,13 +290,21 @@
                     results = regex.exec(location.search);
                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
             }
+
+            function goIndex() {
+                if (location.href.indexOf("/openExam/") > -1) {
+                    location.href = "/openExam/"
+                } else {
+                    location.href = "/";
+                }
+            }
         </script>
     </head>
     <body id="capture">
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <span class="navbar-toggler-icon" style="border: 1px solid #eeeeee; margin-right:5px;"></span>
+                <a class="navbar-brand" href="javascript:goIndex()">
+                    <span class="navbar-toggler-icon" style="border: 1px solid #eeeeee; margin-right:2px;"></span>
                     Open Exam
                 </a>
             </div>
