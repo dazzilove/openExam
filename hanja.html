@@ -253,7 +253,9 @@
 
             function getJsonFilePath() {
                 const version = getExamVersion();
-                return `${location.origin}/openExam/${version}.json`;
+                const path = `${location.origin}/openExam/${version}.json`;
+                console.log(path);
+                return path;
             }
 
             function getExamVersion() {
