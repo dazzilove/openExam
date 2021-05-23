@@ -254,14 +254,14 @@
 
             function getJsonFilePath() {
                 const version = getExamVersion();
-                const path = location.pathname.replace("/hanja.html", "/examJsonData/" + version + ".json");
+                const path = location.pathname.replace("/hanja.html", "/examJsonData/hanja-" + version + ".json");
                 return location.origin + path;
             }
 
             function getExamVersion() {
                 let version = getParameter("examVersion");
                 if (version == "") {
-                    version = "hanja-2021-7";
+                    version = "2021-7";
                 }
                 return version;
             }
