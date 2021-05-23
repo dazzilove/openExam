@@ -9,10 +9,10 @@
         <script>
             function goExamForHanja(version) {
                 let url = location.href;
-                if (location.pathname == "/") {
-                    url += "hanja.html";
-                } else {
+                if (location.href.indexOf("index.html") > -1) {
                     url = url.replace("index.html", "hanja.html");
+                } else {
+                    url += "hanja.html";
                 }
                 url += "?examVersion=" + version;
                 location.href = url;
