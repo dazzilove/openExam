@@ -30,7 +30,6 @@
             const list = [
 { seq:'1', hanja:'九', mean:'아홉', sound:'구'}, 
 { seq:'2', hanja:'金', mean:'쇠', sound:'금'}, 
-/*
 { seq:'3', hanja:'南', mean:'남녘', sound:'남'}, 
 { seq:'4', hanja:'男', mean:'사내', sound:'남'}, 
 { seq:'5', hanja:'女', mean:'여자', sound:'녀'}, 
@@ -73,7 +72,6 @@
 { seq:'42', hanja:'外', mean:'바깥', sound:'외'}, 
 { seq:'43', hanja:'右', mean:'오른', sound:'우'}, 
 { seq:'44', hanja:'入', mean:'들', sound:'입'}, 
-*/
 { seq:'45', hanja:'足', mean:'발', sound:'족'}, 
 { seq:'46', hanja:'左', mean:'왼', sound:'좌'}, 
 { seq:'47', hanja:'中', mean:'가운데', sound:'중'}, 
@@ -152,7 +150,7 @@
                 tempExamList.forEach((item, index) => {
                     let result = item.result; 
                     let failAnswerText = getFailAnswerText(item);
-                    copyText += `[${result}] ${index+1}. ${item.hanja} ${getRightAnswer(item)} ${failAnswerText} \n`;
+                    copyText += `[${result}] ${index+1}. ${item.hanja} ${getAnswerText(item)} ${failAnswerText} \n`;
                 });
 
                 const t = document.createElement("textarea");
@@ -262,7 +260,7 @@
                 const resultBadgeClass = (result == "X") ? "bg-danger" : "bg-success";
                 const resultLine =  `<li class="list-group-item d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold">${item.hanja} <span style="color:#777777;">${getRightAnswer(item)}</span></div>
+                                            <div class="fw-bold">${item.hanja} <span style="color:#777777;">${getAnswerText(item)}</span></div>
                                             <span style="color:#aaaaaa;">${failAnswerText}</span>
                                         </div>
                                         <span class="badge ${resultBadgeClass}">${result}</span>
