@@ -132,7 +132,7 @@
 
                 let item = examList[examIdx-1];
                 item.answer = answer;
-                item.result = (getRightAnswer(item) == answer) ? "O" : "X";
+                item.result = (getAnswerText(item) == answer) ? "O" : "X";
 
                 presentExamCard();
             }
@@ -160,11 +160,7 @@
                 alertText += "결과가 복사되었습니다.\n";
                 alertText += "원하는곳에 붙여넣기 하세요. ^^";
                 alert(alertText);
-            }      
-
-            function getRightAnswer(item) {
-                return item.mean + " " + item.sound;
-            }
+            }    
 
             function handleBtnExamEnd(that) {
                 showHideViewArea("viewResult");
@@ -184,6 +180,36 @@
             function startPresentExamCard() {
                 examIdx = 0;
                 presentExamCard();
+            }
+
+            function createExamList() {
+                examList = []; // 재응시 관련 초기화
+                examList = Array.prototype.slice.call(list);
+                shuffle(examList);
+                createQuestions();
+            }
+
+            function createQuestions() {
+                examList.forEach(item => {
+                    const itemIdx = examList.findIndex(el => el.seq == item.seq);
+
+                    let questions = [];
+                    let tempList = Array.prototype.slice.call(list);
+
+                    questions.push(item);
+                    tempList.splice(itemIdx, 1);
+
+                    for(let i=0; i<3; i++) {
+                        shuffle(tempList);
+                        questions.push(tempList[i]);
+                        tempList.splice(i, 1);
+                    }
+
+                    shuffle(questions);
+
+                    item.questions = [];
+                    questions.forEach(question => item.questions.push(getAnswerText(question)));
+                });
             }
 
             function presentExamCard() {
@@ -224,20 +250,6 @@
                 examList.forEach((item, idx) => createResultLine(item, idx+1));
             }
 
-            function getFormatDate(date) {
-                let year = date.getFullYear();
-                let month = getNumberToTwoLengthText(date.getMonth() + 1);
-                let day = getNumberToTwoLengthText(date.getDate());
-                let hours = getNumberToTwoLengthText(date.getHours());
-                let minutes = getNumberToTwoLengthText(date.getMinutes());
-                let secondes = getNumberToTwoLengthText(date.getSeconds());
-                return `${year}.${month}.${day} ${hours}:${minutes}:${secondes}`;
-            }
-
-            function getNumberToTwoLengthText(numberVal) {
-                return (numberVal >= 10) ? numberVal : "0" + numberVal;
-            }
-
             function createResultLine(item, idx) {
                 const result = item.result;
                 const failAnswerText = getFailAnswerText(item);
@@ -252,40 +264,6 @@
                 document.querySelector("#viewResult .resultList .list-group").innerHTML +=  resultLine;
             }
 
-            function getFailAnswerText(item) {
-                return (item.result == "X") ?  `(선택한 답: ${item.answer})` : "";
-            }
-
-            function createExamList() {
-                examList = []; // 재응시 관련 초기화
-                examList = Array.prototype.slice.call(list);
-                shuffle(examList);
-                createQuestions();
-            }
-
-            function createQuestions() {
-                examList.forEach(item => {
-                    const itemIdx = examList.findIndex(el => el.seq == item.seq);
-
-                    let questions = [];
-                    let tempList = Array.prototype.slice.call(list);
-
-                    questions.push(item);
-                    tempList.splice(itemIdx, 1);
-
-                    for(let i=0; i<3; i++) {
-                        shuffle(tempList);
-                        questions.push(tempList[i]);
-                        tempList.splice(i, 1);
-                    }
-
-                    shuffle(questions);
-
-                    item.questions = [];
-                    questions.forEach(question => item.questions.push(question.mean + " " + question.sound));
-                });
-            }
-
             function shuffle(a) { 
                 var j, x, i; 
                 for (i = a.length; i; i -= 1) { 
@@ -294,6 +272,28 @@
                     a[i - 1] = a[j]; 
                     a[j] = x; 
                 } 
+            }  
+
+            function getAnswerText(item) {
+                return item.mean + " " + item.sound;
+            }
+
+            function getFailAnswerText(item) {
+                return (item.result == "X") ?  `(선택한 답: ${item.answer})` : "";
+            }
+
+            function getFormatDate(date) {
+                let year = date.getFullYear();
+                let month = getNumberToTwoLengthText(date.getMonth() + 1);
+                let day = getNumberToTwoLengthText(date.getDate());
+                let hours = getNumberToTwoLengthText(date.getHours());
+                let minutes = getNumberToTwoLengthText(date.getMinutes());
+                let secondes = getNumberToTwoLengthText(date.getSeconds());
+                return `${year}.${month}.${day} ${hours}:${minutes}:${secondes}`;
+            }
+
+            function getNumberToTwoLengthText(numberVal) {
+                return (numberVal >= 10) ? numberVal : "0" + numberVal;
             }
         </script>
     </head>
