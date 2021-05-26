@@ -116,7 +116,7 @@
                 copyText += "-" + document.querySelector("#viewResult .resultTitle").innerText + "\n";
                 copyText += "-" + document.querySelector("#viewResult .resultReport").innerText + "\n";
                 let tempNowExamList = Array.prototype.slice.call(nowExamList);
-                tempNowExamList.sort((a, b) => a.result < b.result ? -1 : a.result > b.result ? 1 : 0);
+                tempNowExamList = tempNowExamList.filter(item => item.result == "X");
                 tempNowExamList.forEach((item, index) => {
                     let result = item.result; 
                     let failAnswerText = getFailAnswerText(item);
