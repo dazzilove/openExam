@@ -112,7 +112,7 @@
             }
 
             function handleBtnExamResultCopy() {
-                let copyText = "대한검정회 한자급수 - 7급" + "\n";
+                let copyText = document.querySelector("title").innerText + "\n";
                 copyText += "-" + document.querySelector("#viewResult .resultTitle").innerText + "\n";
                 copyText += "-" + document.querySelector("#viewResult .resultReport").innerText + "\n";
                 let tempNowExamList = Array.prototype.slice.call(nowExamList);
