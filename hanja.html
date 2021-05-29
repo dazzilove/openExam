@@ -37,6 +37,7 @@
             let examList = [];
             let nowExamList = [];
             let nowExamIdx = 0;
+            let resultExamList = [];
 
             window.onload = function() {
                 console.log(getJsonFilePath());
@@ -87,9 +88,11 @@
             }
 
             function handleBtnExamStart(that) {
-                showHideViewArea("viewExam");
-                resetExamCard();
-                startPresentExamCard();
+                examStart("A");
+            }
+
+            function handleBtnExamWorngListStart(that) {
+                examStart("W");
             }
 
             function handleBtnExamNext(that) {
@@ -113,14 +116,20 @@
 
             function handleBtnExamResultCopy() {
                 let copyText = document.querySelector("title").innerText + "\n";
-                copyText += "-" + document.querySelector("#viewResult .resultTitle").innerText + "\n";
-                copyText += "-" + document.querySelector("#viewResult .resultReport").innerText + "\n";
-                let tempNowExamList = Array.prototype.slice.call(nowExamList);
-                tempNowExamList = tempNowExamList.filter(item => item.result == "X");
-                tempNowExamList.forEach((item, index) => {
-                    let result = item.result; 
-                    let failAnswerText = getFailAnswerText(item);
-                    copyText += `[${result}] ${index+1}. ${item.hanja} ${getAnswerText(item)} ${failAnswerText} \n`;
+
+                resultExamList.forEach(examInfo => {
+                    copyText += `++ ${examInfo.index + 1}회 +++++++++++\n`;
+
+                    let tempNowExamList = Array.prototype.slice.call(examInfo.examList);
+                    let tempNowExamListFail = Array.prototype.slice.call(tempNowExamList.filter(item => item.result === "X"));
+                    copyText += `- ${examInfo.date}\n`;
+                    copyText += `- Total: ${tempNowExamList.length}, Ok:${tempNowExamList.length - tempNowExamListFail.length}, Fail:${tempNowExamListFail.length}\n`;
+
+                    tempNowExamListFail.forEach((item, index) => {
+                        let result = item.result; 
+                        let failAnswerText = getFailAnswerText(item);
+                        copyText += `[${result}] ${index+1}. ${item.hanja} ${getAnswerText(item)} ${failAnswerText} \n`;
+                    });
                 });
 
                 const t = document.createElement("textarea");
@@ -145,10 +154,16 @@
                 showHideViewArea("viewAll");
             }
 
-            function resetExamCard() {
+            function examStart(examType) {
+                showHideViewArea("viewExam");
+                resetExamCard(examType);
+                startPresentExamCard();
+            }
+
+            function resetExamCard(examType) {
                 document.querySelector("#btnExamStart").style.display = "none";
                 document.querySelector(".examCard").style.display = "block";
-                createNowExamList();
+                createNowExamList(examType);
             }
 
             function startPresentExamCard() {
@@ -156,19 +171,28 @@
                 presentExamCard();
             }
 
-            function createNowExamList() {
-                nowExamList = []; // 재응시 관련 초기화
-                nowExamList = Array.prototype.slice.call(examList);
+            function createNowExamList(examType) {
+                if (examType == "A") {
+                    resultExamList = [];
+                    nowExamList = [];
+                    nowExamList = Array.prototype.slice.call(examList);
+                } else {
+                    const noowExamListFail = Array.prototype.slice.call(nowExamList.filter(item => item.result === "X"));
+                    nowExamList = [];
+                    nowExamList = Array.prototype.slice.call(noowExamListFail);
+                    nowExamList.forEach(item => item.result = "");
+                    console.log("nowExamList", nowExamList);
+                }
                 shuffle(nowExamList);
                 createQuestions();
             }
 
             function createQuestions() {
                 nowExamList.forEach(item => {
-                    const itemIdx = nowExamList.findIndex(el => el.seq == item.seq);
+                    const itemIdx = examList.findIndex(el => el.seq == item.seq);
 
                     let questions = [];
-                    let tempList = Array.prototype.slice.call(nowExamList);
+                    let tempList = Array.prototype.slice.call(examList);
 
                     questions.push(item);
                     tempList.splice(itemIdx, 1);
@@ -187,7 +211,7 @@
             }
 
             function presentExamCard() {
-                if (nowExamIdx == examList.length) {
+                if (nowExamIdx == nowExamList.length) {
                     showHideViewArea("viewEnd");
                     return;
                 }
@@ -213,7 +237,19 @@
             }
 
             function presentResult() {
-                document.querySelector("#viewResult .resultTitle").innerHTML = getFormatDate(new Date());
+                const nowDate = getFormatDate(new Date());
+
+                const tempResultExamListCnt = resultExamList.length;
+                const tempNowExamList = JSON.parse(JSON.stringify(nowExamList));
+                resultExamList.push({"index":tempResultExamListCnt, "date":nowDate, "examList":tempNowExamList});
+                if (tempNowExamList.filter(item => item.result === "X").length == 0) {
+                    document.querySelector("#btnExamListFailStart").style.display = "none";
+                } else {
+                    document.querySelector("#btnExamListFailStart").style.display = "block";
+                }
+                console.log("resultExamList", resultExamList);
+
+                document.querySelector("#viewResult .resultTitle").innerHTML = nowDate;
 
                 const okResultCnt = nowExamList.filter(item => item.result == "O").length;
                 const failResultCnt = nowExamList.filter(item => item.result == "X").length;
@@ -406,16 +442,22 @@
                         </div>
                         <div class="d-grid" style="margin-top: 10px;">
                             <button 
+                                class="btn btn-dark" 
+                                type="button" 
+                                id="btnExamListFailStart" 
+                                onclick="handleBtnExamWorngListStart(this)">틀린 단어 재시험</button>
+                            <button 
                                 class="btn btn-primary" 
                                 type="button" 
                                 id="btnExamResultCopy" 
+                                style="margin-top: 3px;"
                                 onclick="handleBtnExamResultCopy(this)">결과 복사</button>
                         </div>
                     </div>
                 </div>
                 <div class="d-grid">
                     <button 
-                        class="btn btn-outline-warning" 
+                        class="btn btn-outline-danger" 
                         type="button" 
                         style="margin-top: 5px;"
                         onclick="handleBtnExamStart(this)">재시험</button>
