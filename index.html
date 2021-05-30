@@ -25,17 +25,6 @@
                 url += "?examVersion=" + version;
                 location.href = url;
             }
-
-            function goExamForEnglish(version) {
-                console.log(version);
-            }
-
-            function switchTab(tabId) {
-                document.querySelectorAll(".tabMenu").forEach(item => {
-                    item.style.display = "none";
-                });
-                document.querySelector("#" + tabId).style.display = "block";
-            }
         </script>
     </head>
     <body>
@@ -48,14 +37,6 @@
             </div>
         </nav>
         <div class="container" style="padding: 10px;">
-            <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="javascript:switchTab('tabHanja')">한자</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="javascript:switchTab('tabEnglish')">영어</a>
-                </li>
-            </ul>            
             <!-- START - tabHanja -->
             <div class="tabMenu" id="tabHanja">
                 <h6 class="display-6">대한검정회</h6>
@@ -130,25 +111,6 @@
                 </div>
             </div> 
             <!-- END - tabHanja -->
-            <!-- START - tabHanja -->
-            <div class="tabMenu" id="tabEnglish" style="display: none;">
-                <h6 class="display-6">NCIC 국가교육과정정보센터</h6>
-                <h6>기본어휘</h6>
-                <ul>
-                    <li><a href="javasript:goExamForEnglish('1')">초등 기본 어휘</a></li>
-                    <li><a href="javasript:goExamForEnglish('2')">중등 기본 어휘</a></li>
-                    <li><a href="javasript:goExamForEnglish('3')">고등 기본 어휘</a></li>
-                </ul>
-                <h6>기본 어휘 관련 지침</h6>
-                <div class="card">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">초등학교 3∼4학년군：240 낱말 내외</li>
-                        <li class="list-group-item">초등학교 5∼6학년군：260 낱말 내외 (누계：500 낱말 내외)</li>
-                        <li class="list-group-item">중학교 1∼3학년군：750 낱말 내외 (총계：1,250 낱말 내외)</li>
-                        <li class="list-group-item">고등학교 영어(공통과목)：550 낱말 내외 (총계：1,800 낱말 내외) </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </body>
 </html>
