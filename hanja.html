@@ -40,7 +40,6 @@
             let resultExamList = [];
 
             window.onload = function() {
-                console.log(getJsonFilePath());
                 fetch(getJsonFilePath())
                     .then(response => response.json())
                     .then(json => {
@@ -181,7 +180,6 @@
                     nowExamList = [];
                     nowExamList = Array.prototype.slice.call(noowExamListFail);
                     nowExamList.forEach(item => item.result = "");
-                    console.log("nowExamList", nowExamList);
                 }
                 shuffle(nowExamList);
                 createQuestions();
@@ -247,7 +245,6 @@
                 } else {
                     document.querySelector("#btnExamListFailStart").style.display = "block";
                 }
-                console.log("resultExamList", resultExamList);
 
                 document.querySelector("#viewResult .resultTitle").innerHTML = nowDate;
 
