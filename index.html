@@ -25,6 +25,17 @@
                 url += "?examVersion=" + version;
                 location.href = url;
             }
+
+            function goExamForEnglish(version) {
+                console.log(version);
+            }
+
+            function switchTab(tabId) {
+                document.querySelectorAll(".tabMenu").forEach(item => {
+                    item.style.display = "none";
+                });
+                document.querySelector("#" + tabId).style.display = "block";
+            }
         </script>
     </head>
     <body>
@@ -39,78 +50,104 @@
         <div class="container" style="padding: 10px;">
             <ul class="nav nav-tabs" style="margin-bottom: 15px;">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">한자</a>
+                  <a class="nav-link active" aria-current="page" href="javascript:switchTab('tabHanja')">한자</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="javascript:switchTab('tabEnglish')">영어</a>
                 </li>
             </ul>            
-            <h6 class="display-6">대한검정회</h6>
-            <h6>급수한자</h6>
-            <ul>
-                <li><a href="javascript:goExamForHanja('2021-8')">대한검정회 한자급수 - 8급 (30자)</a></li>
-                <li><a href="javascript:goExamForHanja('2021-7')">대한검정회 한자급수 - 7급 (50자)</a></li>
-                <li><a href="javascript:goExamForHanja('2021-6')">대한검정회 한자급수 - 6급 (70자)</a></li>
-                <li><a href="javascript:goExamForHanja('2021-p5')">대한검정회 한자급수 - 준5급 (100자)</a></li>
-                <li><a href="javascript:goExamForHanja('2021-x5')">대한검정회 한자급수 - 5급 (250자)</a></li>
-                <li><a href="javascript:goExamForHanja('2021-p4')">대한검정회 한자급수 - 준4급 (400자)</a></li>
-                <li><a href="javascript:goExamForHanja('2021-x4')">대한검정회 한자급수 - 4급 (600자)</a></li>
-                <li><a href="javascript:goExamForHanja('2021-p3')">대한검정회 한자급수 - 준3급 (800자)</a></li>
-                <li><a href="javascript:goExamForHanja('2021-x3')">대한검정회 한자급수 - 3급 (1000자)</a></li>
-            </ul>
-            <h6>시험일정</h6>
-            <div class="table-responsive">
-                <table class="table table-sm table-bordered table-hover" style="text-align: center; width: 760px;">
-                    <colgroup>
-                        <col style="width: 80px;">
-                        <col style="width: 110px;">
-                        <col style="width: 110px;">
-                        <col style="width: 170px;">
-                        <col style="width: 110px;">
-                        <col >
-                    </colgroup>
-                    <thead class="table-light">
-                        <tr>
-                            <th>회차</th>
-                            <th>시행일</th>
-                            <th>입실완료시간</th>
-                            <th>인터넷접수</th>
-                            <th>합격자발표일</th>
-                            <th>자격증교부기간</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>제90회</td>
-                            <td>02.27(토)</td>
-                            <td>오후 1:40</td>
-                            <td>20.12.21(월)~21.01.20(수)</td>
-                            <td>03.29(월)</td>
-                            <td>21.03.29(월)~04.02(금)</td>
-                        </tr>
-                        <tr>
-                            <td>제91회</td>
-                            <td>05.29(토)</td>
-                            <td>오후 1:40</td>
-                            <td>03.29(월)~04.21(수)</td>
-                            <td>06.28(월)</td>
-                            <td>06.28(월)~07.02(금)</td>
-                        </tr>
-                        <tr>
-                            <td>제92회</td>
-                            <td>08.28(토)</td>
-                            <td>오후 1:40</td>
-                            <td>06.28(월)~07.21(수)</td>
-                            <td>09.27(월)</td>
-                            <td>09.27(월)~10.01(금)</td>
-                        </tr>
-                        <tr>
-                            <td>제93회</td>
-                            <td>11.27(토)</td>
-                            <td>오후 1:40</td>
-                            <td>09.27(월)~10.20(수)</td>
-                            <td>12.27(월)</td>
-                            <td>12.27(월)~12.31(금)</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- START - tabHanja -->
+            <div class="tabMenu" id="tabHanja">
+                <h6 class="display-6">대한검정회</h6>
+                <h6>급수한자</h6>
+                <ul>
+                    <li><a href="javascript:goExamForHanja('2021-8')">대한검정회 한자급수 - 8급 (30자)</a></li>
+                    <li><a href="javascript:goExamForHanja('2021-7')">대한검정회 한자급수 - 7급 (50자)</a></li>
+                    <li><a href="javascript:goExamForHanja('2021-6')">대한검정회 한자급수 - 6급 (70자)</a></li>
+                    <li><a href="javascript:goExamForHanja('2021-p5')">대한검정회 한자급수 - 준5급 (100자)</a></li>
+                    <li><a href="javascript:goExamForHanja('2021-x5')">대한검정회 한자급수 - 5급 (250자)</a></li>
+                    <li><a href="javascript:goExamForHanja('2021-p4')">대한검정회 한자급수 - 준4급 (400자)</a></li>
+                    <li><a href="javascript:goExamForHanja('2021-x4')">대한검정회 한자급수 - 4급 (600자)</a></li>
+                    <li><a href="javascript:goExamForHanja('2021-p3')">대한검정회 한자급수 - 준3급 (800자)</a></li>
+                    <li><a href="javascript:goExamForHanja('2021-x3')">대한검정회 한자급수 - 3급 (1000자)</a></li>
+                </ul>
+                <h6>시험일정</h6>
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered table-hover" style="text-align: center; width: 760px;">
+                        <colgroup>
+                            <col style="width: 80px;">
+                            <col style="width: 110px;">
+                            <col style="width: 110px;">
+                            <col style="width: 170px;">
+                            <col style="width: 110px;">
+                            <col >
+                        </colgroup>
+                        <thead class="table-light">
+                            <tr>
+                                <th>회차</th>
+                                <th>시행일</th>
+                                <th>입실완료시간</th>
+                                <th>인터넷접수</th>
+                                <th>합격자발표일</th>
+                                <th>자격증교부기간</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>제90회</td>
+                                <td>02.27(토)</td>
+                                <td>오후 1:40</td>
+                                <td>20.12.21(월)~21.01.20(수)</td>
+                                <td>03.29(월)</td>
+                                <td>21.03.29(월)~04.02(금)</td>
+                            </tr>
+                            <tr>
+                                <td>제91회</td>
+                                <td>05.29(토)</td>
+                                <td>오후 1:40</td>
+                                <td>03.29(월)~04.21(수)</td>
+                                <td>06.28(월)</td>
+                                <td>06.28(월)~07.02(금)</td>
+                            </tr>
+                            <tr>
+                                <td>제92회</td>
+                                <td>08.28(토)</td>
+                                <td>오후 1:40</td>
+                                <td>06.28(월)~07.21(수)</td>
+                                <td>09.27(월)</td>
+                                <td>09.27(월)~10.01(금)</td>
+                            </tr>
+                            <tr>
+                                <td>제93회</td>
+                                <td>11.27(토)</td>
+                                <td>오후 1:40</td>
+                                <td>09.27(월)~10.20(수)</td>
+                                <td>12.27(월)</td>
+                                <td>12.27(월)~12.31(금)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
+            <!-- END - tabHanja -->
+            <!-- START - tabHanja -->
+            <div class="tabMenu" id="tabEnglish" style="display: none;">
+                <h6 class="display-6">NCIC 국가교육과정정보센터</h6>
+                <h6>기본어휘</h6>
+                <ul>
+                    <li><a href="javasript:goExamForEnglish('1')">초등 기본 어휘</a></li>
+                    <li><a href="javasript:goExamForEnglish('2')">중등 기본 어휘</a></li>
+                    <li><a href="javasript:goExamForEnglish('3')">고등 기본 어휘</a></li>
+                </ul>
+                <h6>기본 어휘 관련 지침</h6>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">초등학교 3∼4학년군：240 낱말 내외</li>
+                        <li class="list-group-item">초등학교 5∼6학년군：260 낱말 내외 (누계：500 낱말 내외)</li>
+                        <li class="list-group-item">중학교 1∼3학년군：750 낱말 내외 (총계：1,250 낱말 내외)</li>
+                        <li class="list-group-item">고등학교 영어(공통과목)：550 낱말 내외 (총계：1,800 낱말 내외) </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </body>
