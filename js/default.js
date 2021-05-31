@@ -1,5 +1,4 @@
 
-
 function shuffle(a) { 
     var j, x, i; 
     for (i = a.length; i; i -= 1) { 
@@ -18,14 +17,8 @@ function goIndex() {
     }
 }
 
-
-
 function getExamVersion() {
-    let version = getParameter("examVersion");
-    if (version == "") {
-        version = "2021-7";
-    }
-    return version;
+    return getParameter("examVersion");
 }
 
 function getFormatDate(date) {
