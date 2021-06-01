@@ -25,6 +25,29 @@
                 url += "?examVersion=" + version;
                 location.href = url;
             }
+
+            function goExamForEnglish(version) {
+                let url = location.href;
+                if (location.href.indexOf("index.html") > -1) {
+                    url = url.replace("index.html", "english.html");
+                } else {
+                    url += "english.html";
+                }
+                url += "?version=" + version;
+                location.href = url;
+            }
+
+            function switchTab(tabId) {
+                document.querySelectorAll(".tabMenu").forEach(item => {
+                    item.style.display = "none";
+                });
+                document.querySelector("#" + tabId).style.display = "block";
+
+                document.querySelectorAll(".nav-item a").forEach(item => {
+                    item.classList.remove("active");
+                });
+                document.querySelector(".nav-item ." + tabId).classList.add("active");
+            }
         </script>
     </head>
     <body>
@@ -37,6 +60,14 @@
             </div>
         </nav>
         <div class="container" style="padding: 10px;">
+            <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+                <li class="nav-item">
+                  <a class="nav-link tabHanja active" aria-current="page" href="javascript:switchTab('tabHanja')">한자</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link tabEnglish" href="javascript:switchTab('tabEnglish')">영어</a>
+                </li>
+            </ul>            
             <!-- START - tabHanja -->
             <div class="tabMenu" id="tabHanja">
                 <h6 class="display-6">대한검정회</h6>
@@ -110,6 +141,27 @@
                     </table>
                 </div>
             </div> 
+            <!-- END - tabHanja -->
+            <!-- START - tabHanja -->
+            <div class="tabMenu" id="tabEnglish" style="display: none;">
+                <h6 class="display-6">중학영단어 총정리 한권으로 끝내기</h6>
+                <ul>
+                    <li>
+                        <a href="javascript:goExamForEnglish('saltybooks_middleSchoolEng_1_e')">초등 필수 영단어 (398)</a>
+                        <ul>
+                            <li><a href="https://youtu.be/KPld1CeRehI" target="_blank">Youtube - 초등 필수영단어 01</a></li>
+                            <li><a href="https://youtu.be/mrJL4_pZgho" target="_blank">Youtube - 초등 필수영단어 02</a></li>
+                            <li><a href="https://youtu.be/ycdEAtYX7yI" target="_blank">Youtube - 초등 필수영단어 03</a></li>
+                            <li><a href="https://youtu.be/TXmiayK6Jys" target="_blank">Youtube - 초등 필수영단어 04</a></li>
+                            <li><a href="https://youtu.be/TpI2TV9cEl4" target="_blank">Youtube - 초등 필수영단어 05</a></li>
+                            <li><a href="https://youtu.be/E5_dckNt4l4" target="_blank">Youtube - 초등 필수영단어 06</a></li>
+                            <li><a href="https://youtu.be/HoGoJxEuqas" target="_blank">Youtube - 초등 필수영단어 07</a></li>
+                            <li><a href="https://youtu.be/LiahDNxGQrQ" target="_blank">Youtube - 초등 필수영단어 08</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
             <!-- END - tabHanja -->
         </div>
     </body>
