@@ -257,7 +257,7 @@
             }
 
             function getJsonFilePath() {
-                const version = getExamVersion();
+                const version = getParameter("version");
                 const path = location.pathname.replace("/hanja.html", "/examJsonData/hanja-" + version + ".json");
                 return location.origin + path;
             }
