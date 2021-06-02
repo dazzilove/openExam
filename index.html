@@ -7,6 +7,10 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <script>
+            window.onload = function() {
+                createEnglishSaltybooksMiddleSchoolEngList();
+            }
+
             function goIndex() {
                 if (location.href.indexOf("/openExam/") > -1) {
                     location.href = "/openExam/"
@@ -47,6 +51,26 @@
                     item.classList.remove("active");
                 });
                 document.querySelector(".nav-item ." + tabId).classList.add("active");
+            }
+
+            function createEnglishSaltybooksMiddleSchoolEngList() {
+                const list = [
+                    { title:"중학1 day1", version:'saltybooks_middleSchoolEng_2_m1_1', youtube: 'https://youtu.be/wyJNWiqM1wc' }
+                ];
+
+                let liText = "";
+                list.forEach(item => {
+                    liText += ` <li>
+                                    <a href="javascript:goExamForEnglish('${item.version}')">${item.title}</a>
+                                    <span>
+                                        - <img src="/openExam/img/youtube_icon-icons.com_53607.png" style="width: 15px;">
+                                        <a href="${item.youtube}" target="_blank">발음듣기</a>
+                                    </span>
+                                </li>`;
+                });
+                let targetUl = document.querySelector("#englishSaltybooksMiddleSchoolEng");
+                targetUl.innerHTML = "";
+                targetUl.innerHTML = liText;
             }
         </script>
     </head>
@@ -159,14 +183,8 @@
                             <li><a href="https://youtu.be/LiahDNxGQrQ" target="_blank">Youtube - 초등 필수영단어 08</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:goExamForEnglish('saltybooks_middleSchoolEng_2_m1_1')">중학1 day1</a>
-                        <span>
-                            - <img src="/openExam/img/youtube_icon-icons.com_53607.png" style="width: 15px;">
-                            <a href="https://youtu.be/wyJNWiqM1wc" target="_blank">Youtube</a>
-                        </span>
-                    </li>
                 </ul>
+                <ul id="englishSaltybooksMiddleSchoolEng"></ul>
             </div>
             <!-- END - tabHanja -->
         </div>
