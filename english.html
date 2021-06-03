@@ -39,7 +39,11 @@
                 let answer = "";
                 document.getElementsByName("question").forEach(el => {
                     if (el.checked) {
-                        answer = el.getAttribute("data-mean") + " - " + el.getAttribute("data-part");
+                        answer = el.getAttribute("data-mean");
+                        const part = el.getAttribute("data-part");
+                        if (part != null && part != "") {
+                            answer += " - " + part;
+                        }
                         return;
                     }
                 });
@@ -235,11 +239,23 @@
             }
 
             function getAnswerText(item) {
-                return item.mean + " - " + item.part;
+                const mean = item.mean;
+                const part = item.part;
+                let text = mean;
+                if (part != null && part != "") {
+                    text += " - " + part;
+                }
+                return text;
             }
 
             function getFormattedAnswerText(item) {
-                return item.mean + " <span style='color: #dddddd'>(" + item.part + ")</span>";
+                const mean = item.mean;
+                const part = item.part;
+                let text = item.mean;
+                if (item.part != null && item.part != "") {
+                    text += " <span style='color: #dddddd'>(" + item.part + ")</span>";
+                }
+                return text;
             }
 
             function getFailAnswerText(item) {
