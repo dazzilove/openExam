@@ -1,0 +1,12 @@
+{
+    "title": "Grammar Wise Starter - Ch.07",
+    "list" : [
+        { "seq": 1,  "word": "novel", "part": "", "mean": "소설" }, 
+        { "seq": 2,  "word": "surprise", "part": "", "mean": "놀람, 놀래키다" }, 
+        { "seq": 3,  "word": "truth", "part": "", "mean": "진실, 진리" }, 
+        { "seq": 4,  "word": "field trip", "part": "", "mean": "현장학습" }, 
+        { "seq": 5,  "word": "a third grader", "part": "", "mean": "3학년" }, 
+        { "seq": 43,  "word": "heavily", "part": "", "mean": "심하게" }, 
+        { "seq": 44,  "word": "abroad", "part": "", "mean": "해외(로, 에서)" }        
+    ]
+}
