@@ -41,6 +41,17 @@
                 location.href = url;
             }
 
+            function goExamForEnglishToWordSelect(version) {
+                let url = location.href;
+                if (location.href.indexOf("index.html") > -1) {
+                    url = url.replace("index.html", "english.html");
+                } else {
+                    url += "english.html";
+                }
+                url += "?version=" + version;
+                location.href = url;
+            }
+
             function switchTab(tabId) {
                 document.querySelectorAll(".tabMenu").forEach(item => {
                     item.style.display = "none";
@@ -220,7 +231,11 @@
                                 <li>Chapter 04 일반동사</li>
                                 <li>Chapter 05 형용사와 부사</li>                                
                                 <li>Chapter 06 전치사</li>
-                                <li><a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch07_word')">Chapter 07 현재진행형과 미래형</a></li>
+                                <li>
+                                    Chapter 07 현재진행형과 미래형
+                                    - <a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch07_word')">Mean</a>
+                                    , <a href="javascript:goExamForEnglishToWordSelect('shinsago_grammarWiseStarter_ch07_word')">Word(Select)</a>
+                                </li>
                                 <li>Chapter 08 조동사</li>
                                 <li>Chapter 09 접속사</li>
                                 <li>Chapter 10 의문사</li>
