@@ -27,6 +27,10 @@
                     });
             }
 
+            function handleBtnExamMean(that) {
+                location.href = location.origin + "/openExam/english.html?version=" + getParameter("version");
+            }
+
             function handleBtnExamStart(that) {
                 examStart("A");
             }
@@ -105,9 +109,10 @@
                 document.querySelectorAll(".viewArea").forEach(el => el.style.display = "none");
                 document.querySelector("#" + menuId).style.display = "block";
 
-                document.querySelectorAll(".title-line-btn").forEach(el => el.style.display = "none");
+                document.querySelector("#btnExamStartGroup").style.display = "none";  
+                document.querySelector("#btnViewAll").style.display = "none";
                 if (menuId == "viewAll") {
-                    document.querySelector("#btnExamStart").style.display = "block";
+                    document.querySelector("#btnExamStartGroup").style.display = "block"; 
                 }
                 if (menuId != "viewAll") {
                     document.querySelector("#btnViewAll").style.display = "block";
@@ -115,7 +120,7 @@
             }
 
             function resetExamCard(examType) {
-                document.querySelector("#btnExamStart").style.display = "none";
+                document.querySelector("#btnExamStartGroup").style.display = "none"; 
                 document.querySelector(".examCard").style.display = "block";
                 createNowExamList(examType);
             }
@@ -285,27 +290,31 @@
         </nav>
         <div class="container" style="padding: 10px;">
 
+            <div class="row" style="margin-bottom: 2px;">
+                <div class="examTitle"></div>
+            </div>
 
-            <div class="row" style="margin-bottom: 10px;">
-                <div class="col-8">
-                    <div class="examTitle"></div>
+            <div style="text-align: right; margin-bottom: 10px;">
+                <div id="btnExamStartGroup">
+                    <button 
+                        class="btn btn-outline-secondary title-line-btn" 
+                        type="button" 
+                        id="btnExamStart" 
+                        style="margin-left: auto"
+                        onclick="handleBtnExamMean(this)">시험보기(뜻)로 이동</button>
+                    <button 
+                        class="btn btn-outline-primary title-line-btn" 
+                        type="button" 
+                        id="btnExamStart" 
+                        style="margin-left: auto"
+                        onclick="handleBtnExamStart(this)">시험보기(단어)</button>
                 </div>
-                <div class="col-4">
-                    <div style="text-align: right;">
-                        <button 
-                            class="btn btn-outline-primary title-line-btn" 
-                            type="button" 
-                            id="btnExamStart" 
-                            style="margin-left: auto"
-                            onclick="handleBtnExamStart(this)">시험보기</button>
-                        <button 
-                            class="btn btn-outline-primary title-line-btn" 
-                            type="button" 
-                            id="btnViewAll" 
-                            style="margin-left: auto; display: none;"
-                            onclick="handleBtnViewAll(this)">단어목록</button>
-                    </div>
-                </div>
+                <button 
+                    class="btn btn-outline-primary title-line-btn" 
+                    type="button" 
+                    id="btnViewAll" 
+                    style="margin-left: auto; display: none;"
+                    onclick="handleBtnViewAll(this)">단어목록</button>
             </div>
 
             <div class="viewArea" id="viewAll" style="display: block;">
