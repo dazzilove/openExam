@@ -114,12 +114,12 @@
                 document.querySelector("#" + menuId).style.display = "block";
     
                 document.querySelector("#btnExamStartGroup").style.display = "none";  
-                document.querySelector("#btnViewAll").style.display = "none";
+                document.querySelector("#btnExamRestartGroup").style.display = "none";  
                 if (menuId == "viewAll") {     
                     document.querySelector("#btnExamStartGroup").style.display = "block";               
                 }
                 if (menuId != "viewAll") {
-                    document.querySelector("#btnViewAll").style.display = "block";
+                    document.querySelector("#btnExamRestartGroup").style.display = "block";  
                 }
             }
 
@@ -324,12 +324,17 @@
                         id="btnExamStart" 
                         onclick="handleBtnExamStart(this)">시험보기(뜻)</button>
                 </div>
-                <button 
-                    class="btn btn-outline-primary title-line-btn" 
-                    type="button" 
-                    id="btnViewAll" 
-                    style="margin-left: auto; display: none;"
-                    onclick="handleBtnViewAll(this)">단어목록</button>
+                <div id="btnExamRestartGroup" style="display: none;">
+                    <button 
+                        class="btn btn-outline-danger title-line-btn" 
+                        type="button" 
+                        onclick="handleBtnExamStart(this)">재시험</button>
+                    <button 
+                        class="btn btn-outline-primary title-line-btn" 
+                        type="button" 
+                        id="btnViewAll" 
+                        onclick="handleBtnViewAll(this)">단어목록</button>
+                </div>
             </div>
 
             <div class="viewArea" id="viewAll" style="display: block;">
@@ -364,13 +369,6 @@
                             onclick="handleBtnExamNext(this)">다음</button>
                     </div>
                   </div>
-                </div>
-                <div class="d-grid">
-                    <button 
-                        class="btn btn-outline-secondary" 
-                        type="button" 
-                        style="margin-top: 5px;"
-                        onclick="handleBtnExamStart(this)">재시험</button>
                 </div>
             </div>
 
@@ -417,13 +415,6 @@
                                 onclick="handleBtnExamResultCopy(this)">결과 복사</button>
                         </div>
                     </div>
-                </div>
-                <div class="d-grid">
-                    <button 
-                        class="btn btn-outline-danger" 
-                        type="button" 
-                        style="margin-top: 5px;"
-                        onclick="handleBtnExamStart(this)">재시험</button>
                 </div>
             </div>
 
