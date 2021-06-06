@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.11",
+    "list" : [
+        { "seq": 1,  "word": "ago", "part": "부", "mean": "(알마의 시간)전에" }, 
+        { "seq": 2,  "word": "close", "part": "형", "mean": "가까운" }, 
+        { "seq": 3,  "word": "ground", "part": "명", "mean": "땅, 지면" }, 
+        { "seq": 4,  "word": "grow", "part": "동", "mean": "기르다, 재배하다" }, 
+        { "seq": 5,  "word": "just", "part": "부", "mean": "그저, 단지" }, 
+        { "seq": 6,  "word": "piece", "part": "명", "mean": "조각" }, 
+        { "seq": 7,  "word": "throw away", "part": "", "mean": "버리다" }, 
+        { "seq": 8,  "word": "rest", "part": "명", "mean": "나머지" }, 
+        { "seq": 9,  "word": "angry", "part": "형", "mean": "화난" }, 
+        { "seq": 10,  "word": "waste", "part": "동", "mean": "낭비하다" }, 
+        { "seq": 11,  "word": "move", "part": "동", "mean": "옮기다, 이동하다" }, 
+        { "seq": 12,  "word": "far", "part": "부", "mean": "멀리" }, 
+        { "seq": 13,  "word": "greedy", "part": "형", "mean": "욕심 많은, 탐욕스러운" }, 
+        { "seq": 14,  "word": "surprised", "part": "형", "mean": "놀란, 놀라는" }, 
+        { "seq": 15,  "word": "plant", "part": "동", "mean": "(나무씨앗 등을) 심다" }, 
+        { "seq": 16,  "word": "touth", "part": "동", "mean": "만지다" }        
+    ]
+}

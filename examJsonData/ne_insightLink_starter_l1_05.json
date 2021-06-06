@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.05",
+    "list" : [
+        { "seq": 1,  "word": "grow", "part": "동", "mean": "자라다, 크다" }, 
+        { "seq": 2,  "word": "warm", "part": "형", "mean": "따뜻한" }, 
+        { "seq": 3,  "word": "learn", "part": "동", "mean": "배우다" }, 
+        { "seq": 4,  "word": "farm", "part": "명", "mean": "농장" }, 
+        { "seq": 5,  "word": "spring", "part": "명", "mean": "봄" }, 
+        { "seq": 6,  "word": "white", "part": "형", "mean": "흰 색의, 하얀" }, 
+        { "seq": 7,  "word": "lose", "part": "동", "mean": "잃다" }, 
+        { "seq": 8,  "word": "tiny", "part": "형", "mean": "아주 작은" }, 
+        { "seq": 9,  "word": "begin", "part": "동", "mean": "시작하다" }, 
+        { "seq": 10,  "word": "form", "part": "동", "mean": "형성되다; 형성시키다" }, 
+        { "seq": 11,  "word": "fall", "part": "명", "mean": "가을" }, 
+        { "seq": 12,  "word": "plenty of", "part": "", "mean": "많은" }, 
+        { "seq": 13,  "word": "month", "part": "명", "mean": "달, 월, 개월" }, 
+        { "seq": 14,  "word": "pick", "part": "동", "mean": "따다" }, 
+        { "seq": 15,  "word": "sweet", "part": "형", "mean": "달콤한" }, 
+        { "seq": 16,  "word": "wait", "part": "동", "mean": "기다리다" }        
+    ]
+}

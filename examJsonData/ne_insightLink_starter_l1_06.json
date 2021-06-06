@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.06",
+    "list" : [
+        { "seq": 1,  "word": "world", "part": "명", "mean": "세계" }, 
+        { "seq": 2,  "word": "same", "part": "형", "mean": "같은, 동일한" }, 
+        { "seq": 3,  "word": "favorite", "part": "형", "mean": "매우 좋아하는" }, 
+        { "seq": 4,  "word": "surprisingly", "part": "부", "mean": "놀랍게도" }, 
+        { "seq": 5,  "word": "thin", "part": "형", "mean": "얇은, 가는" }, 
+        { "seq": 6,  "word": "skin", "part": "명", "mean": "껍질; 피부" }, 
+        { "seq": 7,  "word": "seed", "part": "명", "mean": "씨, 씨앗" }, 
+        { "seq": 8,  "word": "juicy", "part": "형", "mean": "즙이 많은" }, 
+        { "seq": 9,  "word": "make", "part": "동", "mean": "만들다" }, 
+        { "seq": 10,  "word": "funny", "part": "형", "mean": "재미있는" }, 
+        { "seq": 11,  "word": "bottom", "part": "명", "mean": "맨 아래 (부분)" }, 
+        { "seq": 12,  "word": "fruit", "part": "명", "mean": "과일" }, 
+        { "seq": 13,  "word": "look like", "part": "", "mean": "~처럼 보이다" }, 
+        { "seq": 14,  "word": "belly button", "part": "", "mean": "배꼽" }, 
+        { "seq": 15,  "word": "thick", "part": "형", "mean": "두꺼운, 두툼한" }, 
+        { "seq": 16,  "word": "eat", "part": "동", "mean": "먹다" }        
+    ]
+}

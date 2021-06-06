@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.08",
+    "list" : [
+        { "seq": 1,  "word": "artist", "part": "명", "mean": "예술가" }, 
+        { "seq": 2,  "word": "peel", "part": "동,명", "mean": "~의 껍질을 벗기다; 껍질" }, 
+        { "seq": 3,  "word": "tangerine", "part": "명", "mean": "귤" }, 
+        { "seq": 4,  "word": "look like", "part": "", "mean": "~처럼 보이다" }, 
+        { "seq": 5,  "word": "scorpion", "part": "명", "mean": "전갈" }, 
+        { "seq": 6,  "word": "design", "part": "명", "mean": "디자인, 도안" }, 
+        { "seq": 7,  "word": "knife", "part": "명", "mean": "칼" }, 
+        { "seq": 8,  "word": "rabbit", "part": "명", "mean": "토끼" }, 
+        { "seq": 9,  "word": "draw", "part": "동,명", "mean": "그리다" }, 
+        { "seq": 10,  "word": "face", "part": "명", "mean": "얼굴" }, 
+        { "seq": 11,  "word": "upper", "part": "형", "mean": "위쪽의" }, 
+        { "seq": 12,  "word": "side", "part": "명", "mean": "쪽, 측면" }, 
+        { "seq": 13,  "word": "circle", "part": "명", "mean": "동그라미, 원" }, 
+        { "seq": 14,  "word": "leg", "part": "명", "mean": "다리" }, 
+        { "seq": 15,  "word": "use", "part": "동,명", "mean": "이용하다, 사용하다" }, 
+        { "seq": 16,  "word": "cute", "part": "형", "mean": "귀여운" }        
+    ]
+}

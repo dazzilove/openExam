@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.10",
+    "list" : [
+        { "seq": 1,  "word": "month", "part": "명", "mean": "월, 달, 개월" }, 
+        { "seq": 2,  "word": "full moon", "part": "", "mean": "보름달" }, 
+        { "seq": 3,  "word": "native", "part": "형", "mean": "태어난 곳의, 원주민의" }, 
+        { "seq": 4,  "word": "special", "part": "형", "mean": "특별한" }, 
+        { "seq": 5,  "word": "find", "part": "동", "mean": "찾다" }, 
+        { "seq": 6,  "word": "wolf", "part": "명", "mean": "늑대" }, 
+        { "seq": 7,  "word": "howl", "part": "동", "mean": "울다, 울부짖다" }, 
+        { "seq": 8,  "word": "hungry", "part": "형", "mean": "배고픈" }, 
+        { "seq": 9,  "word": "snow", "part": "명", "mean": "눈" }, 
+        { "seq": 10,  "word": "melt", "part": "동", "mean": "녹다, 녹이다" }, 
+        { "seq": 11,  "word": "worm", "part": "명", "mean": "벌레" }, 
+        { "seq": 12,  "word": "trail", "part": "명", "mean": "자국, 흔적" }, 
+        { "seq": 13,  "word": "north", "part": "형", "mean": "북쪽에 있는" }, 
+        { "seq": 14,  "word": "pick", "part": "동", "mean": "따다" }, 
+        { "seq": 15,  "word": "strawberry", "part": "명", "mean": "딸기" }, 
+        { "seq": 16,  "word": "harvest", "part": "명", "mean": "추수, 수확" }        
+    ]
+}

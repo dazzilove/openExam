@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.02",
+    "list" : [
+        { "seq": 1,  "word": "ballet", "part": "명", "mean": "발레(춤)" }, 
+        { "seq": 2,  "word": "prince", "part": "명", "mean": "왕자" }, 
+        { "seq": 3,  "word": "swan", "part": "명", "mean": "백조" }, 
+        { "seq": 4,  "word": "lovely", "part": "형", "mean": "사랑스러운" }, 
+        { "seq": 5,  "word": "ballerina", "part": "명", "mean": "발레리나" }, 
+        { "seq": 6,  "word": "dance", "part": "동", "mean": "춤추다" }, 
+        { "seq": 7,  "word": "real", "part": "형", "mean": "진짜의, 실제의" }, 
+        { "seq": 8,  "word": "raise", "part": "동", "mean": "들어올리다, 올리다" }, 
+        { "seq": 9,  "word": "straight", "part": "부", "mean": "똑바로" }, 
+        { "seq": 10,  "word": "bend", "part": "동", "mean": "굽히다, 숙이다" }, 
+        { "seq": 11,  "word": "wrist", "part": "명", "mean": "손목" }, 
+        { "seq": 12,  "word": "neck", "part": "명", "mean": "목" }, 
+        { "seq": 13,  "word": "spread", "part": "동", "mean": "펼치다, 벌리다" }, 
+        { "seq": 14,  "word": "move", "part": "동", "mean": "움직이다" }, 
+        { "seq": 15,  "word": "round", "part": "형", "mean": "둥근" }, 
+        { "seq": 16,  "word": "feather", "part": "명", "mean": "털, 깃털" }        
+    ]
+}

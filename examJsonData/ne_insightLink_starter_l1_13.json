@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.13",
+    "list" : [
+        { "seq": 1,  "word": "because", "part": "접", "mean": "~때문에, ~해서" }, 
+        { "seq": 2,  "word": "cook", "part": "동", "mean": "요리하다" }, 
+        { "seq": 3,  "word": "pot", "part": "명", "mean": "냄비, 솥" }, 
+        { "seq": 4,  "word": "boil", "part": "동", "mean": "삶다, 끓이다" }, 
+        { "seq": 5,  "word": "cool", "part": "동", "mean": "식히다, 식다" }, 
+        { "seq": 6,  "word": "boiled egg", "part": "", "mean": "삶은 계란" }, 
+        { "seq": 7,  "word": "oil", "part": "명", "mean": "기름" }, 
+        { "seq": 8,  "word": "pan", "part": "명", "mean": "팬, (얕은)냄비" }, 
+        { "seq": 9,  "word": "crack", "part": "동", "mean": "깨뜨리다, 부수다" }, 
+        { "seq": 10,  "word": "into", "part": "전", "mean": "~안으로, 안에" }, 
+        { "seq": 11,  "word": "fry", "part": "동", "mean": "튀기다" }, 
+        { "seq": 12,  "word": "flip", "part": "동", "mean": "홱 뒤집다" }, 
+        { "seq": 13,  "word": "edge", "part": "명", "mean": "끝, 가장자리" }, 
+        { "seq": 14,  "word": "turn", "part": "동", "mean": "~이 되다, ~해지다" }, 
+        { "seq": 15,  "word": "mix", "part": "동", "mean": "섞다" }, 
+        { "seq": 16,  "word": "tasty", "part": "형", "mean": "맛있는" }        
+    ]
+}

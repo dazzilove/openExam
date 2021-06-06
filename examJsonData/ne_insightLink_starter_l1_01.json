@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.01",
+    "list" : [
+        { "seq": 1,  "word": "forest", "part": "명", "mean": "숲, 삼림" }, 
+        { "seq": 2,  "word": "tree", "part": "명", "mean": "나무" }, 
+        { "seq": 3,  "word": "river", "part": "명", "mean": "강" }, 
+        { "seq": 4,  "word": "live", "part": "동", "mean": "살다, 거주하다" }, 
+        { "seq": 5,  "word": "deer", "part": "명", "mean": "사슴" }, 
+        { "seq": 6,  "word": "rain", "part": "명", "mean": "비" }, 
+        { "seq": 7,  "word": "sunlight", "part": "명", "mean": "햇빛, 햇살" }, 
+        { "seq": 8,  "word": "plant", "part": "명", "mean": "식물, 초록" }, 
+        { "seq": 9,  "word": "grow", "part": "동", "mean": "자라다, 크다" }, 
+        { "seq": 10,  "word": "well", "part": "부", "mean": "잘, 좋게" }, 
+        { "seq": 11,  "word": "enough", "part": "형", "mean": "충분한" }, 
+        { "seq": 12,  "word": "desert", "part": "명", "mean": "사막" }, 
+        { "seq": 13,  "word": "dry", "part": "형", "mean": "마른, 건조한" }, 
+        { "seq": 14,  "word": "camel", "part": "명", "mean": "낙타" }, 
+        { "seq": 15,  "word": "lizard", "part": "명", "mean": "도마뱀" }, 
+        { "seq": 16,  "word": "without", "part": "전", "mean": "~없이" }        
+    ]
+}

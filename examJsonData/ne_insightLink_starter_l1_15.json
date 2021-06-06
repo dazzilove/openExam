@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.15",
+    "list" : [        
+        { "seq": 1,  "word": "want", "part": "동", "mean": "원하다, 바라다" }, 
+        { "seq": 2,  "word": "play", "part": "동", "mean": "놀다, (놀이 등을) 하다" }, 
+        { "seq": 3,  "word": "spoon", "part": "명", "mean": "숟가락" }, 
+        { "seq": 4,  "word": "often", "part": "부", "mean": "자주" }, 
+        { "seq": 5,  "word": "race", "part": "명", "mean": "경주, 레이스" }, 
+        { "seq": 6,  "word": "sports day", "part": "", "mean": "운동회 날" }, 
+        { "seq": 7,  "word": "rule", "part": "명", "mean": "규칙" }, 
+        { "seq": 8,  "word": "simple", "part": "형", "mean": "간단한, 단순한" }, 
+        { "seq": 9,  "word": "hold", "part": "동", "mean": "잡다, 쥐다" }, 
+        { "seq": 10,  "word": "balance", "part": "동", "mean": "균형을 유지하다" }, 
+        { "seq": 11,  "word": "fall", "part": "동", "mean": "떨어지다" }, 
+        { "seq": 12,  "word": "pick up", "part": "", "mean": "줍다" }, 
+        { "seq": 13,  "word": "continue", "part": "동", "mean": "계속하다" }, 
+        { "seq": 14,  "word": "tip", "part": "명", "mean": "(작은)조언" }, 
+        { "seq": 15,  "word": "win", "part": "동", "mean": "이기다" }, 
+        { "seq": 16,  "word": "focus on", "part": "", "mean": "~에 중점을 두다" }        
+    ]
+}

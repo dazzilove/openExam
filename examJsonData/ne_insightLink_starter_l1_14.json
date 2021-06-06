@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.14",
+    "list" : [
+        { "seq": 1,  "word": "female", "part": "형", "mean": "여성의, 암컷의" }, 
+        { "seq": 2,  "word": "duck", "part": "명", "mean": "오리" }, 
+        { "seq": 3,  "word": "lay", "part": "동", "mean": "(알을)낳다" }, 
+        { "seq": 4,  "word": "at once", "part": "", "mean": "즉시, 당장" }, 
+        { "seq": 5,  "word": "keep", "part": "동", "mean": "유지하다, 두다" }, 
+        { "seq": 6,  "word": "nest", "part": "명", "mean": "둥지" }, 
+        { "seq": 7,  "word": "sit", "part": "동", "mean": "앉다, 앉아 있다" }, 
+        { "seq": 8,  "word": "shake", "part": "동", "mean": "흔들리다, 흔들다" }, 
+        { "seq": 9,  "word": "duckling", "part": "명", "mean": "오리 새끼" }, 
+        { "seq": 10,  "word": "hatch", "part": "동", "mean": "부화하다" }, 
+        { "seq": 11,  "word": "sharp", "part": "형", "mean": "날카로운" }, 
+        { "seq": 12,  "word": "break", "part": "동", "mean": "깨뜨리다, 깨지다" }, 
+        { "seq": 13,  "word": "free", "part": "형", "mean": "자유로운" }, 
+        { "seq": 14,  "word": "lead", "part": "동", "mean": "이끌다, 데리고 가다" }, 
+        { "seq": 15,  "word": "teach", "part": "동", "mean": "가르치다" }, 
+        { "seq": 16,  "word": "learn", "part": "동", "mean": "배우다" }        
+    ]
+}

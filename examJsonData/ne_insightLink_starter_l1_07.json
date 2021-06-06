@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.07",
+    "list" : [
+        { "seq": 1,  "word": "during", "part": "전", "mean": "~동안" }, 
+        { "seq": 2,  "word": "trip", "part": "명", "mean": "여행; 항해" }, 
+        { "seq": 3,  "word": "sailor", "part": "명", "mean": "선원, 뱃사람" }, 
+        { "seq": 4,  "word": "sick", "part": "형", "mean": "아픈" }, 
+        { "seq": 5,  "word": "problem", "part": "명", "mean": "문제" }, 
+        { "seq": 6,  "word": "bleed", "part": "동", "mean": "피를 흘리다" }, 
+        { "seq": 7,  "word": "mouth", "part": "명", "mean": "입" }, 
+        { "seq": 8,  "word": "die", "part": "동", "mean": "죽다" }, 
+        { "seq": 9,  "word": "doctor", "part": "명", "mean": "의사" }, 
+        { "seq": 10,  "word": "choose", "part": "동", "mean": "고르다, 선택하다" }, 
+        { "seq": 11,  "word": "pair", "part": "명", "mean": "쌍, 짝, 두 사람" }, 
+        { "seq": 12,  "word": "each", "part": "형", "mean": "각자의, 각각의" }, 
+        { "seq": 13,  "word": "medicine", "part": "명", "mean": "약, 약물" }, 
+        { "seq": 14,  "word": "drink", "part": "동", "mean": "마시다" }, 
+        { "seq": 15,  "word": "vinegar", "part": "명", "mean": "식초" }, 
+        { "seq": 16,  "word": "become", "part": "동", "mean": "~이 되다" }        
+    ]
+}

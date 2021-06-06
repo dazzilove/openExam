@@ -9,6 +9,7 @@
         <script>
             window.onload = function() {
                 createEnglishSaltybooksMiddleSchoolEngList();
+                createEnglishListNeInsightLinkStarterL1();
             }
 
             function goIndex() {
@@ -89,6 +90,39 @@
                                 </li>`;
                 });
                 let targetUl = document.querySelector("#englishSaltybooksMiddleSchoolEng");
+                targetUl.innerHTML = "";
+                targetUl.innerHTML = liText;
+            }
+
+            function createEnglishListNeInsightLinkStarterL1() {
+                const list = [
+                    { title: "L01.Where do wild animals live?", version: "ne_insightLink_starter_l1_01" },
+                    { title: "L02.Swan lake", version: "ne_insightLink_starter_l1_02" },
+                    { title: "L03.Food wild animals eat", version: "ne_insightLink_starter_l1_03" },
+                    { title: "L04.Say cheese!", version: "ne_insightLink_starter_l1_04" },
+                    { title: "L05.How oranges grow", version: "ne_insightLink_starter_l1_05" },
+                    { title: "L06.Valencia and Navel oranges", version: "ne_insightLink_starter_l1_06" },
+                    { title: "L07.How oranges saved the royal navy", version: "ne_insightLink_starter_l1_07" },
+                    { title: "L08.Tangerine peel art", version: "ne_insightLink_starter_l1_08" },
+                    { title: "L09.How birds fly in the sky", version: "ne_insightLink_starter_l1_09" },
+                    { title: "L10.The full moon's special names", version: "ne_insightLink_starter_l1_10" },
+                    { title: "L11.Why the sky is far away", version: "ne_insightLink_starter_l1_11" },
+                    { title: "L12.Hospital in the sky", version: "ne_insightLink_starter_l1_12" },
+                    { title: "L13.Sunny-side up, please!", version: "ne_insightLink_starter_l1_13" },
+                    { title: "L14.How do ducks lay eggs?", version: "ne_insightLink_starter_l1_14" },
+                    { title: "L15.The egg-and-spoon race", version: "ne_insightLink_starter_l1_15" },
+                    { title: "L16.Why are eggs oval-shaped?", version: "ne_insightLink_starter_l1_16" }
+                ];
+
+                let liText = "";
+                list.forEach(item => {
+                    liText += `<li>
+                                    ${item.title}
+                                    - <a href="javascript:goExamForEnglish('${item.version}')">Mean</a>
+                                    , <a href="javascript:goExamForEnglishToWordSelect('${item.version}')">Word</a>
+                              </li>`;
+                });
+                let targetUl = document.querySelector("#english_NeInsightLinkStarterL1");
                 targetUl.innerHTML = "";
                 targetUl.innerHTML = liText;
             }
@@ -227,6 +261,18 @@
                                   <li>Chapter 11 문장의 종류</li>
                               </ul>
                           </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading3">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                            Insight Link Starter L1 (NE_Build & Grow)
+                          </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionEnglish">
+                            <div class="accordion-body">
+                                <ul id="english_NeInsightLinkStarterL1"></ul>
+                            </div>
                         </div>
                     </div>
                     <div class="accordion-item">

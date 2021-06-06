@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.03",
+    "list" : [
+        { "seq": 1,  "word": "animal", "part": "명", "mean": "동물" }, 
+        { "seq": 2,  "word": "need", "part": "동", "mean": "~을 필요로 하다" }, 
+        { "seq": 3,  "word": "different", "part": "형", "mean": "다른" }, 
+        { "seq": 4,  "word": "only", "part": "부", "mean": "오직, 단지, ~만" }, 
+        { "seq": 5,  "word": "zebra", "part": "명", "mean": "얼룩말" }, 
+        { "seq": 6,  "word": "grass", "part": "명", "mean": "풀, 잔디" }, 
+        { "seq": 7,  "word": "leaf", "part": "명", "mean": "나뭇잎" }, 
+        { "seq": 8,  "word": "chew", "part": "동", "mean": "(음식을)씹다" }, 
+        { "seq": 9,  "word": "giraffe", "part": "명", "mean": "기린" }, 
+        { "seq": 10,  "word": "twig", "part": "명", "mean": "작은 가지" }, 
+        { "seq": 11,  "word": "flat", "part": "형", "mean": "평평한" }, 
+        { "seq": 12,  "word": "hunt", "part": "동", "mean": "사냥하다" }, 
+        { "seq": 13,  "word": "bite", "part": "동", "mean": "물다, 베어 물다" }, 
+        { "seq": 14,  "word": "beak", "part": "명", "mean": "(새의)부리" }, 
+        { "seq": 15,  "word": "get", "part": "동", "mean": "얻다" }, 
+        { "seq": 16,  "word": "ostrich", "part": "명", "mean": "타조" }        
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.12",
+    "list" : [
+        { "seq": 1,  "word": "emergency", "part": "명", "mean": "비상, 긴급 사태" }, 
+        { "seq": 2,  "word": "hospital", "part": "명", "mean": "병원" }, 
+        { "seq": 3,  "word": "worry", "part": "동", "mean": "걱정하다" }, 
+        { "seq": 4,  "word": "ambulance", "part": "명", "mean": "구급차" }, 
+        { "seq": 5,  "word": "help", "part": "동,명", "mean": "돕다; 도움" }, 
+        { "seq": 6,  "word": "twin", "part": "명", "mean": "쌍둥이 (중 한 명)" }, 
+        { "seq": 7,  "word": "be born", "part": "", "mean": "태어나다" }, 
+        { "seq": 8,  "word": "too", "part": "부", "mean": "너무 (~한)" }, 
+        { "seq": 9,  "word": "early", "part": "부", "mean": "(예상보다) 빨리, 일찍" }, 
+        { "seq": 10,  "word": "healthy", "part": "형", "mean": "건강한" }, 
+        { "seq": 11,  "word": "call", "part": "동", "mean": "부르다" }, 
+        { "seq": 12,  "word": "helicopter", "part": "명", "mean": "헬리콥터" }, 
+        { "seq": 13,  "word": "fly", "part": "동", "mean": "날다, 비행하다" }, 
+        { "seq": 14,  "word": "nurse", "part": "명", "mean": "간호사" }, 
+        { "seq": 15,  "word": "take care of", "part": "", "mean": "~을 돌보다" }, 
+        { "seq": 16,  "word": "arrive", "part": "동", "mean": "도착하다" }        
+    ]
+}

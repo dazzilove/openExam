@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.16",
+    "list" : [
+        { "seq": 1,  "word": "closely", "part": "부", "mean": "자세히, 바싹" }, 
+        { "seq": 2,  "word": "round", "part": "형", "mean": "둥근, 원형의" }, 
+        { "seq": 3,  "word": "oval", "part": "형", "mean": "타원형의, 계란형의" }, 
+        { "seq": 4,  "word": "find out", "part": "", "mean": "발견하다, 알아내다" }, 
+        { "seq": 5,  "word": "everywhere", "part": "부", "mean": "어디든지, 도처에" }, 
+        { "seq": 6,  "word": "cliff", "part": "명", "mean": "절벽" }, 
+        { "seq": 7,  "word": "roll", "part": "동", "mean": "구르다, 굴러가다" }, 
+        { "seq": 8,  "word": "easily", "part": "부", "mean": "쉽게" }, 
+        { "seq": 9,  "word": "safe", "part": "형", "mean": "안전한" }, 
+        { "seq": 10,  "word": "stop ~ from …", "part": "", "mean": "(~가…하는 것을) 막다" }, 
+        { "seq": 11,  "word": "break", "part": "동", "mean": "깨지다, 부서지다" }, 
+        { "seq": 12,  "word": "though", "part": "부", "mean": "그렇지만, 하지만" }, 
+        { "seq": 13,  "word": "ground", "part": "명", "mean": "땅, 지면" }, 
+        { "seq": 14,  "word": "less", "part": "형", "mean": "(little의 비교급)더 적은" }, 
+        { "seq": 15,  "word": "loot at", "part": "", "mean": "~을 보다" }, 
+        { "seq": 16,  "word": "ostrich", "part": "명", "mean": "타조" }      
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.09",
+    "list" : [
+        { "seq": 1,  "word": "airplane", "part": "명", "mean": "비행기" }, 
+        { "seq": 2,  "word": "model", "part": "명", "mean": "모험, 견본" }, 
+        { "seq": 3,  "word": "be good at", "part": "", "mean": "~을 잘하다" }, 
+        { "seq": 4,  "word": "fly", "part": "동", "mean": "날다" }, 
+        { "seq": 5,  "word": "wing", "part": "명", "mean": "날개" }, 
+        { "seq": 6,  "word": "flap", "part": "동", "mean": "(날개를) 퍼덕거리다" }, 
+        { "seq": 7,  "word": "lift off", "part": "", "mean": "들어올리다" }, 
+        { "seq": 8,  "word": "ground", "part": "명", "mean": "땅, 지면" }, 
+        { "seq": 9,  "word": "bone", "part": "명", "mean": "뼈" }, 
+        { "seq": 10,  "word": "thin", "part": "형", "mean": "얇은, 가는" }, 
+        { "seq": 11,  "word": "empty", "part": "형", "mean": "비어 있는" }, 
+        { "seq": 12,  "word": "inside", "part": "부", "mean": "안에, 안으로" }, 
+        { "seq": 13,  "word": "light", "part": "형", "mean": "가벼운" }, 
+        { "seq": 14,  "word": "tooth", "part": "명", "mean": "이, 이빨" }, 
+        { "seq": 15,  "word": "beak", "part": "명", "mean": "부리" }, 
+        { "seq": 16,  "word": "perfect", "part": "형", "mean": "완벽한" }        
+    ]
+}

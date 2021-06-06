@@ -1,0 +1,21 @@
+{
+    "title": "Insight Link Starter L1 - L.04",
+    "list" : [
+        { "seq": 1,  "word": "look at", "part": "", "mean": "~을 보다, 살피다" }, 
+        { "seq": 2,  "word": "team", "part": "명", "mean": "팀, 조" }, 
+        { "seq": 3,  "word": "set up", "part": "", "mean": "설치하다" }, 
+        { "seq": 4,  "word": "camera", "part": "명", "mean": "카메라" }, 
+        { "seq": 5,  "word": "around", "part": "전", "mean": "여기저기에; 주위에" }, 
+        { "seq": 6,  "word": "park", "part": "명", "mean": "공원" }, 
+        { "seq": 7,  "word": "picture", "part": "명", "mean": "사진; 그림" }, 
+        { "seq": 8,  "word": "show", "part": "동", "mean": "보여주다" }, 
+        { "seq": 9,  "word": "together", "part": "붓", "mean": "함께, 같이" }, 
+        { "seq": 10,  "word": "sensor", "part": "명", "mean": "센서, 감지기" }, 
+        { "seq": 11,  "word": "when", "part": "접", "mean": "~할 때에" }, 
+        { "seq": 12,  "word": "walk", "part": "동", "mean": "걷다" }, 
+        { "seq": 13,  "word": "member", "part": "명", "mean": "구성원, 멤버" }, 
+        { "seq": 14,  "word": "check", "part": "동", "mean": "살피다, 점검하다" }, 
+        { "seq": 15,  "word": "cut", "part": "동", "mean": "베다, 자르다" }, 
+        { "seq": 16,  "word": "in front of", "part": "", "mean": "~의 앞에" }        
+    ]
+}
