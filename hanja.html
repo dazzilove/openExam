@@ -38,12 +38,13 @@
                 document.querySelectorAll(".viewArea").forEach(el => el.style.display = "none");
                 document.querySelector("#" + menuId).style.display = "block";
 
-                document.querySelectorAll(".title-line-btn").forEach(el => el.style.display = "none");
-                if (menuId == "viewAll") {
-                    document.querySelector("#btnExamStart").style.display = "block";
+                document.querySelector("#btnExamStartGroup").style.display = "none";  
+                document.querySelector("#btnExamRestartGroup").style.display = "none";  
+                if (menuId == "viewAll") {     
+                    document.querySelector("#btnExamStartGroup").style.display = "block";               
                 }
                 if (menuId != "viewAll") {
-                    document.querySelector("#btnViewAll").style.display = "block";
+                    document.querySelector("#btnExamRestartGroup").style.display = "block";  
                 }
             }
 
@@ -137,7 +138,6 @@
             }
 
             function resetExamCard(examType) {
-                document.querySelector("#btnExamStart").style.display = "none";
                 document.querySelector(".examCard").style.display = "block";
                 createNowExamList(examType);
             }
@@ -274,23 +274,28 @@
         </nav>
         <div class="container" style="padding: 10px;">
 
+            <div class="row" style="margin-bottom: 2px;">
+                <div class="examTitle"></div>
+            </div>
+
             <div class="row" style="margin-bottom: 10px;">
-                <div class="col-8">
-                    <div class="examTitle">대한검정회 한자급수 - 7급</div>
-                </div>
-                <div class="col-4">
-                    <div style="text-align: right;">
+                <div style="text-align: right;">
+                    <div id="btnExamStartGroup">
                         <button 
                             class="btn btn-outline-primary title-line-btn" 
                             type="button" 
                             id="btnExamStart" 
-                            style="margin-left: auto"
                             onclick="handleBtnExamStart(this)">시험보기</button>
+                    </div>
+                    <div id="btnExamRestartGroup" style="display: none;">
+                        <button 
+                            class="btn btn-outline-danger title-line-btn" 
+                            type="button" 
+                            onclick="handleBtnExamStart(this)">재시험</button>
                         <button 
                             class="btn btn-outline-primary title-line-btn" 
                             type="button" 
                             id="btnViewAll" 
-                            style="margin-left: auto; display: none;"
                             onclick="handleBtnViewAll(this)">한자목록</button>
                     </div>
                 </div>
@@ -328,13 +333,6 @@
                             onclick="handleBtnExamNext(this)">다음</button>
                     </div>
                   </div>
-                </div>
-                <div class="d-grid">
-                    <button 
-                        class="btn btn-outline-secondary" 
-                        type="button" 
-                        style="margin-top: 5px;"
-                        onclick="handleBtnExamStart(this)">재시험</button>
                 </div>
             </div>
 
@@ -381,13 +379,6 @@
                                 onclick="handleBtnExamResultCopy(this)">결과 복사</button>
                         </div>
                     </div>
-                </div>
-                <div class="d-grid">
-                    <button 
-                        class="btn btn-outline-danger" 
-                        type="button" 
-                        style="margin-top: 5px;"
-                        onclick="handleBtnExamStart(this)">재시험</button>
                 </div>
             </div>
         </div>
