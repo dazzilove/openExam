@@ -1,4 +1,12 @@
 
+function goIndex() {
+    location.href = location.origin + "/openExam/";
+}
+
+function goSubIndex(target) {
+    location.href = location.origin + "/openExam/index" + target + ".html";
+}
+
 function shuffle(a) { 
     var j, x, i; 
     for (i = a.length; i; i -= 1) { 
@@ -7,15 +15,7 @@ function shuffle(a) {
         a[i - 1] = a[j]; 
         a[j] = x; 
     } 
-}  
-
-function goIndex() {
-    if (location.href.indexOf("/openExam/") > -1) {
-        location.href = "/openExam/"
-    } else {
-        location.href = "/";
-    }
-}
+} 
 
 function getExamVersion() {
     return getParameter("examVersion");

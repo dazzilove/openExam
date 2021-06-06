@@ -6,305 +6,54 @@
         <title>OpenExam</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <link type="text/css" rel="stylesheet" href="/openExam/css/default.css">
+        <script type="text/javascript" src="/openExam/js/default.js"></script>
         <script>
             window.onload = function() {
-                createEnglishListSaltybooksMiddleSchool();
-                createEnglishListNeInsightLinkStarterL1();
-            }
-
-            function goIndex() {
-                if (location.href.indexOf("/openExam/") > -1) {
-                    location.href = "/openExam/"
-                } else {
-                    location.href = "/";
-                }
-            }
-
-            function goExamForHanja(version) {
-                let url = location.href;
-                if (location.href.indexOf("index.html") > -1) {
-                    url = url.replace("index.html", "hanja.html");
-                } else {
-                    url += "hanja.html";
-                }
-                url += "?version=" + version;
-                location.href = url;
-            }
-
-            function goExamForEnglish(version) {
-                let url = location.href;
-                if (location.href.indexOf("index.html") > -1) {
-                    url = url.replace("index.html", "english.html");
-                } else {
-                    url += "english.html";
-                }
-                url += "?version=" + version;
-                location.href = url;
-            }
-
-            function goExamForEnglishToWordSelect(version) {
-                let url = location.href;
-                if (location.href.indexOf("index.html") > -1) {
-                    url = url.replace("index.html", "englishWordSelect.html");
-                } else {
-                    url += "englishWordSelect.html";
-                }
-                url += "?version=" + version;
-                location.href = url;
-            }
-
-            function switchTab(tabId) {
-                document.querySelectorAll(".tabMenu").forEach(item => {
-                    item.style.display = "none";
-                });
-                document.querySelector("#" + tabId).style.display = "block";
-
-                document.querySelectorAll(".nav-item a").forEach(item => {
-                    item.classList.remove("active");
-                });
-                document.querySelector(".nav-item ." + tabId).classList.add("active");
-            }
-
-            function createEnglishListSaltybooksMiddleSchool() {
-                const list = [
-                    { title:"중학1 day1", version:'saltybooks_middleSchoolEng_2_m1_1', youtube: 'https://youtu.be/wyJNWiqM1wc' },
-                    { title:"중학1 day2", version:'saltybooks_middleSchoolEng_2_m1_2', youtube: 'https://youtu.be/KIBP6nBuDXk' },
-                    { title:"중학1 day3", version:'saltybooks_middleSchoolEng_2_m1_3', youtube: 'https://youtu.be/qxDo1A388qA' },
-                    { title:"중학1 day4", version:'saltybooks_middleSchoolEng_2_m1_4', youtube: 'https://youtu.be/ucH4Zcc4mBc' },
-                    { title:"중학1 day5", version:'saltybooks_middleSchoolEng_2_m1_5', youtube: 'https://youtu.be/4AmCagv2TRA' },
-                    { title:"중학1 day6", version:'saltybooks_middleSchoolEng_2_m1_6', youtube: 'https://youtu.be/neH9o2QU47E' },
-                    { title:"중학1 day7", version:'saltybooks_middleSchoolEng_2_m1_7', youtube: 'https://youtu.be/8YGOSoVFTOA' },
-                    { title:"중학1 day8", version:'saltybooks_middleSchoolEng_2_m1_8', youtube: 'https://youtu.be/_L6pU9GObOs' },
-                    { title:"중학1 day9", version:'saltybooks_middleSchoolEng_2_m1_9', youtube: 'https://youtu.be/QfUZSvjVjHY' },
-                    { title:"중학1 day10", version:'saltybooks_middleSchoolEng_2_m1_10', youtube: 'https://youtu.be/vXxk15BCQyk' }
-                ];
-
-                let liText = "";
-                list.forEach(item => {
-                    liText += ` <li>
-                                    <a href="javascript:goExamForEnglish('${item.version}')">${item.title}</a>
-                                    <span>
-                                        - <img src="/openExam/img/youtube_icon-icons.com_53607.png" style="width: 15px;">
-                                        <a href="${item.youtube}" target="_blank">발음듣기</a>
-                                    </span>
-                                </li>`;
-                });
-                let targetUl = document.querySelector("#english_SaltybooksMiddleSchoolEng");
-                targetUl.innerHTML = "";
-                targetUl.innerHTML = liText;
-            }
-
-            function createEnglishListNeInsightLinkStarterL1() {
-                const list = [
-                    { title: "L01.Where do wild animals live?", version: "ne_insightLink_starter_l1_01" },
-                    { title: "L02.Swan lake", version: "ne_insightLink_starter_l1_02" },
-                    { title: "L03.Food wild animals eat", version: "ne_insightLink_starter_l1_03" },
-                    { title: "L04.Say cheese!", version: "ne_insightLink_starter_l1_04" },
-                    { title: "L05.How oranges grow", version: "ne_insightLink_starter_l1_05" },
-                    { title: "L06.Valencia and Navel oranges", version: "ne_insightLink_starter_l1_06" },
-                    { title: "L07.How oranges saved the royal navy", version: "ne_insightLink_starter_l1_07" },
-                    { title: "L08.Tangerine peel art", version: "ne_insightLink_starter_l1_08" },
-                    { title: "L09.How birds fly in the sky", version: "ne_insightLink_starter_l1_09" },
-                    { title: "L10.The full moon's special names", version: "ne_insightLink_starter_l1_10" },
-                    { title: "L11.Why the sky is far away", version: "ne_insightLink_starter_l1_11" },
-                    { title: "L12.Hospital in the sky", version: "ne_insightLink_starter_l1_12" },
-                    { title: "L13.Sunny-side up, please!", version: "ne_insightLink_starter_l1_13" },
-                    { title: "L14.How do ducks lay eggs?", version: "ne_insightLink_starter_l1_14" },
-                    { title: "L15.The egg-and-spoon race", version: "ne_insightLink_starter_l1_15" },
-                    { title: "L16.Why are eggs oval-shaped?", version: "ne_insightLink_starter_l1_16" }
-                ];
-
-                let liText = "";
-                list.forEach(item => {
-                    liText += `<li>
-                                    ${item.title}
-                                    - <a href="javascript:goExamForEnglish('${item.version}')">Mean</a>
-                                    , <a href="javascript:goExamForEnglishToWordSelect('${item.version}')">Word</a>
-                              </li>`;
-                });
-                let targetUl = document.querySelector("#english_NeInsightLinkStarterL1");
-                targetUl.innerHTML = "";
-                targetUl.innerHTML = liText;
             }
         </script>
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="javascript:goIndex()">
-                    <span class="navbar-toggler-icon" style="border: 1px solid #eeeeee; margin-right:2px;"></span>
-                    Open Exam
-                </a>
+                <a class="navbar-brand" href="#">Open Exam</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="javascript:goIndex();">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:goSubIndex('Hanja');">한자</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:goSubIndex('English');">English</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </nav>
+        </nav>        
+
         <div class="container" style="padding: 10px;">
-            <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-                <li class="nav-item">
-                  <a class="nav-link tabHanja active" aria-current="page" href="javascript:switchTab('tabHanja')">한자</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link tabEnglish" href="javascript:switchTab('tabEnglish')">영어</a>
-                </li>
-            </ul>            
-            <!-- START - tabHanja -->
-            <div class="tabMenu" id="tabHanja">
-                <h6 class="display-6">대한검정회</h6>
-                <h6>급수한자</h6>
-                <ul>
-                    <li><a href="javascript:goExamForHanja('2021-8')">대한검정회 한자급수 - 8급 (30자)</a></li>
-                    <li><a href="javascript:goExamForHanja('2021-7')">대한검정회 한자급수 - 7급 (50자)</a></li>
-                    <li><a href="javascript:goExamForHanja('2021-6')">대한검정회 한자급수 - 6급 (70자)</a></li>
-                    <li><a href="javascript:goExamForHanja('2021-p5')">대한검정회 한자급수 - 준5급 (100자)</a></li>
-                    <li><a href="javascript:goExamForHanja('2021-x5')">대한검정회 한자급수 - 5급 (250자)</a></li>
-                    <li><a href="javascript:goExamForHanja('2021-p4')">대한검정회 한자급수 - 준4급 (400자)</a></li>
-                    <li><a href="javascript:goExamForHanja('2021-x4')">대한검정회 한자급수 - 4급 (600자)</a></li>
-                    <li><a href="javascript:goExamForHanja('2021-p3')">대한검정회 한자급수 - 준3급 (800자)</a></li>
-                    <li><a href="javascript:goExamForHanja('2021-x3')">대한검정회 한자급수 - 3급 (1000자)</a></li>
-                </ul>
-                <h6>시험일정</h6>
-                <div class="table-responsive">
-                    <table class="table table-sm table-bordered table-hover" style="text-align: center; width: 760px;">
-                        <colgroup>
-                            <col style="width: 80px;">
-                            <col style="width: 110px;">
-                            <col style="width: 110px;">
-                            <col style="width: 170px;">
-                            <col style="width: 110px;">
-                            <col >
-                        </colgroup>
-                        <thead class="table-light">
-                            <tr>
-                                <th>회차</th>
-                                <th>시행일</th>
-                                <th>입실완료시간</th>
-                                <th>인터넷접수</th>
-                                <th>합격자발표일</th>
-                                <th>자격증교부기간</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>제90회</td>
-                                <td>02.27(토)</td>
-                                <td>오후 1:40</td>
-                                <td>20.12.21(월)~21.01.20(수)</td>
-                                <td>03.29(월)</td>
-                                <td>21.03.29(월)~04.02(금)</td>
-                            </tr>
-                            <tr>
-                                <td>제91회</td>
-                                <td>05.29(토)</td>
-                                <td>오후 1:40</td>
-                                <td>03.29(월)~04.21(수)</td>
-                                <td>06.28(월)</td>
-                                <td>06.28(월)~07.02(금)</td>
-                            </tr>
-                            <tr>
-                                <td>제92회</td>
-                                <td>08.28(토)</td>
-                                <td>오후 1:40</td>
-                                <td>06.28(월)~07.21(수)</td>
-                                <td>09.27(월)</td>
-                                <td>09.27(월)~10.01(금)</td>
-                            </tr>
-                            <tr>
-                                <td>제93회</td>
-                                <td>11.27(토)</td>
-                                <td>오후 1:40</td>
-                                <td>09.27(월)~10.20(수)</td>
-                                <td>12.27(월)</td>
-                                <td>12.27(월)~12.31(금)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div> 
-            <!-- END - tabHanja -->
-            <!-- START - tabHanja -->
-            <div class="tabMenu" id="tabEnglish" style="display: none;">
-                <div class="accordion accordion" id="accordionEnglish">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading2">
-                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                            Grammar Wise Starter (좋은책 신사고)
-                          </button>
-                        </h2>
-                        <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionEnglish">
-                          <div class="accordion-body">
-                              <ul>
-                                  <li>Chapter 01 명사</li>
-                                  <li>Chapter 02 대명사</li>
-                                  <li>Chapter 03 be동사</li>
-                                  <li>
-                                      Chapter 04 일반동사
-                                      - <a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch04')">Mean</a>
-                                      , <a href="javascript:goExamForEnglishToWordSelect('shinsago_grammarWiseStarter_ch04')">Word(Select)</a>
-                                  </li>
-                                  <li>
-                                      Chapter 05 형용사와 부사
-                                      - <a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch05')">Mean</a>
-                                      , <a href="javascript:goExamForEnglishToWordSelect('shinsago_grammarWiseStarter_ch05')">Word(Select)</a>
-                                  </li>                                
-                                  <li>
-                                      Chapter 06 전치사
-                                      - <a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch06')">Mean</a>
-                                      , <a href="javascript:goExamForEnglishToWordSelect('shinsago_grammarWiseStarter_ch06')">Word(Select)</a>
-                                  </li>
-                                  <li>
-                                      Chapter 07 현재진행형과 미래형
-                                      - <a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch07')">Mean</a>
-                                      , <a href="javascript:goExamForEnglishToWordSelect('shinsago_grammarWiseStarter_ch07')">Word(Select)</a>
-                                  </li>
-                                  <li>Chapter 08 조동사</li>
-                                  <li>Chapter 09 접속사</li>
-                                  <li>Chapter 10 의문사</li>
-                                  <li>Chapter 11 문장의 종류</li>
-                              </ul>
-                          </div>
-                        </div>
+            <h6 class="display-6">Hello</h6>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">반갑습니다.</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">OepnExam 방문을 환영합니다.</h6>                  
+                    이곳은 아직 회원가입을 받지 않고 있어요.<br/>
+                    <div class="smallInfo">
+                        때문에 개인화는 지원하지 않습니다.<br/>
+                        테스트 결과는 저장되지 않으니 참고해주세요.<br/>
+                        테스트 결과화면의 "결과 복사"를 클릭하여 카톡으로 전송하면 좋아요.<br/>
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading3">
-                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                            Insight Link Starter L1 (NE_Build & Grow)
-                          </button>
-                        </h2>
-                        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionEnglish">
-                            <div class="accordion-body">
-                                <ul id="english_NeInsightLinkStarterL1"></ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="heading1">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                            중학영단어 총정리 한권으로 끝내기 (쏠티북스)
-                        </button>
-                      </h2>
-                      <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#accordionEnglish">
-                        <div class="accordion-body">
-                            <ul>
-                                <li>
-                                    <a href="javascript:goExamForEnglish('saltybooks_middleSchoolEng_1_e')">초등 필수(398)</a>
-                                    <ul>
-                                        <li><a href="https://youtu.be/KPld1CeRehI" target="_blank">Youtube - 초등 필수영단어 01</a></li>
-                                        <li><a href="https://youtu.be/mrJL4_pZgho" target="_blank">Youtube - 초등 필수영단어 02</a></li>
-                                        <li><a href="https://youtu.be/ycdEAtYX7yI" target="_blank">Youtube - 초등 필수영단어 03</a></li>
-                                        <li><a href="https://youtu.be/TXmiayK6Jys" target="_blank">Youtube - 초등 필수영단어 04</a></li>
-                                        <li><a href="https://youtu.be/TpI2TV9cEl4" target="_blank">Youtube - 초등 필수영단어 05</a></li>
-                                        <li><a href="https://youtu.be/E5_dckNt4l4" target="_blank">Youtube - 초등 필수영단어 06</a></li>
-                                        <li><a href="https://youtu.be/HoGoJxEuqas" target="_blank">Youtube - 초등 필수영단어 07</a></li>
-                                        <li><a href="https://youtu.be/LiahDNxGQrQ" target="_blank">Youtube - 초등 필수영단어 08</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul id="english_SaltybooksMiddleSchoolEng"></ul>   
-                        </div>
-                      </div>
-                    </div>
+                    장기기억에 도움을 주고자 간단히 테스트하는 용도로 만든 서비스에요.
+                    <div class="smallInfo">
+                        하루 또는 이틀에 한번씩 방문하여 가급적 많~이 테스트 해주세요.
+                  </div>
                 </div>
             </div>
-            <!-- END - tabHanja -->
         </div>
     </body>
 </html>

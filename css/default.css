@@ -1,4 +1,9 @@
 
+.smallInfo {
+    font-size: smaller;
+    color: #999999;
+}
+
 .examTitle {
     font-size: larger;
     font-weight: bold;

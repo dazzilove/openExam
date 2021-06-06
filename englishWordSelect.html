@@ -280,14 +280,28 @@
         </script>
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="javascript:goIndex()">
-                    <span class="navbar-toggler-icon" style="border: 1px solid #eeeeee; margin-right:2px;"></span>
-                    Open Exam
-                </a>
+                <a class="navbar-brand" href="#">Open Exam</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:goIndex();">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:goSubIndex('Hanja');">한자</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="javascript:goSubIndex('English');">English</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
+
         <div class="container" style="padding: 10px;">
 
             <div class="row" style="margin-bottom: 2px;">

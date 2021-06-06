@@ -1,0 +1,129 @@
+<!doctype html>  
+<html lang="ko"> 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+        <title>OpenExam</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <link type="text/css" rel="stylesheet" href="/openExam/css/default.css">
+        <script type="text/javascript" src="/openExam/js/default.js"></script>
+        <script>
+            window.onload = function() {
+            }
+
+            function goExamForHanja(version) {
+                location.href = location.origin + "/openExam/hanja.html?version=" + version;
+            }
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Open Exam</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:goIndex();">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="javascript:goSubIndex('Hanja');">한자</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:goSubIndex('English');">English</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>        
+
+        <div class="container" style="padding: 10px;">
+            <h6 class="display-6">한자 Exam List</h6>
+            <div class="accordion accordion" id="accordionHanja">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#collapse1" aria-controls="collapse1">
+                            대한검정회 (급수한자)
+                        </button>
+                    </h2>                    
+                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionHanja">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><a href="javascript:goExamForHanja('2021-8')">대한검정회 한자급수 - 8급 (30자)</a></li>
+                                <li><a href="javascript:goExamForHanja('2021-7')">대한검정회 한자급수 - 7급 (50자)</a></li>
+                                <li><a href="javascript:goExamForHanja('2021-6')">대한검정회 한자급수 - 6급 (70자)</a></li>
+                                <li><a href="javascript:goExamForHanja('2021-p5')">대한검정회 한자급수 - 준5급 (100자)</a></li>
+                                <li><a href="javascript:goExamForHanja('2021-x5')">대한검정회 한자급수 - 5급 (250자)</a></li>
+                                <li><a href="javascript:goExamForHanja('2021-p4')">대한검정회 한자급수 - 준4급 (400자)</a></li>
+                                <li><a href="javascript:goExamForHanja('2021-x4')">대한검정회 한자급수 - 4급 (600자)</a></li>
+                                <li><a href="javascript:goExamForHanja('2021-p3')">대한검정회 한자급수 - 준3급 (800자)</a></li>
+                                <li><a href="javascript:goExamForHanja('2021-x3')">대한검정회 한자급수 - 3급 (1000자)</a></li>
+                            </ul>
+    
+                            2021년 시험일정
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered table-hover" style="text-align: center; width: 760px;">
+                                    <colgroup>
+                                        <col style="width: 80px;">
+                                        <col style="width: 110px;">
+                                        <col style="width: 110px;">
+                                        <col style="width: 170px;">
+                                        <col style="width: 110px;">
+                                        <col >
+                                    </colgroup>
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>회차</th>
+                                            <th>시행일</th>
+                                            <th>입실완료시간</th>
+                                            <th>인터넷접수</th>
+                                            <th>합격자발표일</th>
+                                            <th>자격증교부기간</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>제90회</td>
+                                            <td>02.27(토)</td>
+                                            <td>오후 1:40</td>
+                                            <td>20.12.21(월)~21.01.20(수)</td>
+                                            <td>03.29(월)</td>
+                                            <td>21.03.29(월)~04.02(금)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>제91회</td>
+                                            <td>05.29(토)</td>
+                                            <td>오후 1:40</td>
+                                            <td>03.29(월)~04.21(수)</td>
+                                            <td>06.28(월)</td>
+                                            <td>06.28(월)~07.02(금)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>제92회</td>
+                                            <td>08.28(토)</td>
+                                            <td>오후 1:40</td>
+                                            <td>06.28(월)~07.21(수)</td>
+                                            <td>09.27(월)</td>
+                                            <td>09.27(월)~10.01(금)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>제93회</td>
+                                            <td>11.27(토)</td>
+                                            <td>오후 1:40</td>
+                                            <td>09.27(월)~10.20(수)</td>
+                                            <td>12.27(월)</td>
+                                            <td>12.27(월)~12.31(금)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
