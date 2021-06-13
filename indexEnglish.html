@@ -10,6 +10,7 @@
         <script type="text/javascript" src="/openExam/js/default.js"></script>
         <script>
             window.onload = function() {
+                createEnglishListShinsagoGrammarWiseStarter();
                 createEnglishListSaltybooksMiddleSchool();
                 createEnglishListNeInsightLinkStarterL1();
             }
@@ -20,6 +21,38 @@
 
             function goExamForEnglishToWordSelect(version) {
                 location.href = location.origin + "/openExam/englishWordSelect.html?version=" + version;
+            }
+
+            function createEnglishListShinsagoGrammarWiseStarter() {
+                const list = [
+                    { title:"Chapter 01 명사", version:"" },
+                    { title:"Chapter 02 대명사", version:"" },
+                    { title:"Chapter 03 be동사", version:"" },
+                    { title:"Chapter 04 일반동사", version:"shinsago_grammarWiseStarter_ch04" },
+                    { title:"Chapter 05 형용사와 부사", version:"shinsago_grammarWiseStarter_ch05" },
+                    { title:"Chapter 06 전치사", version:"shinsago_grammarWiseStarter_ch06" },
+                    { title:"Chapter 07 현재진행형과 미래형", version:"shinsago_grammarWiseStarter_ch07" },
+                    { title:"Chapter 08 조동사", version:"" },
+                    { title:"Chapter 09 접속사", version:"" },
+                    { title:"Chapter 10 의문사", version:"" },
+                    { title:"Chapter 11 문장의 종류", version:"" }
+                ];
+
+                let liText = "";
+                list.forEach(item => {
+                    if(item.version) {
+                        liText += ` <li>
+                                        ${item.title}
+                                        - <a href="javascript:goExamForEnglish('${item.version}')">Mean</a>
+                                        , <a href="javascript:goExamForEnglishToWordSelect('${item.version}')">Word</a>
+                                    </li>`;
+                    } else {
+                        liText += `<li>${item.title}</li>`;
+                    }
+                });
+                let targetUl = document.querySelector("#english_ShinsagoGrammarWiseStarter");
+                targetUl.innerHTML = "";
+                targetUl.innerHTML = liText;
             }
 
             function createEnglishListSaltybooksMiddleSchool() {
@@ -43,13 +76,11 @@
 
                 let liText = "";
                 list.forEach(item => {
-                    liText += ` <li>
-                                    <a href="javascript:goExamForEnglish('${item.version}')">${item.title}</a>
-                                    <span>
-                                        - <img src="/openExam/img/youtube_icon-icons.com_53607.png" style="width: 15px;">
-                                        <a href="${item.youtube}" target="_blank">발음듣기</a>
-                                    </span>
-                                </li>`;
+                    liText += `<li>
+                                    ${item.title}
+                                    - <a href="javascript:goExamForEnglish('${item.version}')">Mean</a>
+                                    , <a href="javascript:goExamForEnglishToWordSelect('${item.version}')">Word</a>
+                               </li>`;
                 });
                 let targetUl = document.querySelector("#english_SaltybooksMiddleSchoolEng");
                 targetUl.innerHTML = "";
@@ -124,35 +155,7 @@
                     </h2>
                     <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionEnglish">
                         <div class="accordion-body">
-                            <ul>
-                                <li>Chapter 01 명사</li>
-                                <li>Chapter 02 대명사</li>
-                                <li>Chapter 03 be동사</li>
-                                <li>
-                                    Chapter 04 일반동사
-                                    - <a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch04')">Mean</a>
-                                    , <a href="javascript:goExamForEnglishToWordSelect('shinsago_grammarWiseStarter_ch04')">Word(Select)</a>
-                                </li>
-                                <li>
-                                    Chapter 05 형용사와 부사
-                                    - <a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch05')">Mean</a>
-                                    , <a href="javascript:goExamForEnglishToWordSelect('shinsago_grammarWiseStarter_ch05')">Word(Select)</a>
-                                </li>                                
-                                <li>
-                                    Chapter 06 전치사
-                                    - <a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch06')">Mean</a>
-                                    , <a href="javascript:goExamForEnglishToWordSelect('shinsago_grammarWiseStarter_ch06')">Word(Select)</a>
-                                </li>
-                                <li>
-                                    Chapter 07 현재진행형과 미래형
-                                    - <a href="javascript:goExamForEnglish('shinsago_grammarWiseStarter_ch07')">Mean</a>
-                                    , <a href="javascript:goExamForEnglishToWordSelect('shinsago_grammarWiseStarter_ch07')">Word(Select)</a>
-                                </li>
-                                <li>Chapter 08 조동사</li>
-                                <li>Chapter 09 접속사</li>
-                                <li>Chapter 10 의문사</li>
-                                <li>Chapter 11 문장의 종류</li>
-                            </ul>
+                            <ul id="english_ShinsagoGrammarWiseStarter"></ul>
                         </div>
                     </div>
                 </div>
