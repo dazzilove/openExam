@@ -64,7 +64,7 @@
             }
 
             function handleBtnExamResultCopy() {
-                let copyText = document.querySelector("title").innerText + "\n";
+                let copyText = document.querySelector("title").innerText + " (뜻)\n";
 
                 resultExamList.forEach(examInfo => {
                     copyText += `++ ${examInfo.index + 1}회 +++++++++++\n`;
