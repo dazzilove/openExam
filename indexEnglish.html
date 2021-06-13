@@ -10,9 +10,9 @@
         <script type="text/javascript" src="/openExam/js/default.js"></script>
         <script>
             window.onload = function() {
-                createEnglishListShinsagoGrammarWiseStarter();
-                createEnglishListSaltybooksMiddleSchool();
-                createEnglishListNeInsightLinkStarterL1();
+                createEnglishList_ShinsagoGrammarWiseStarter();
+                createEnglishList_SaltybooksMiddleSchool();
+                createEnglishList_NeInsightLinkStarterL1();
             }
 
             function goExamForEnglish(version) {
@@ -23,7 +23,7 @@
                 location.href = location.origin + "/openExam/englishWordSelect.html?version=" + version;
             }
 
-            function createEnglishListShinsagoGrammarWiseStarter() {
+            function createEnglishList_ShinsagoGrammarWiseStarter() {
                 const list = [
                     { title:"Chapter 01 명사", version:"" },
                     { title:"Chapter 02 대명사", version:"" },
@@ -37,7 +37,7 @@
                     { title:"Chapter 10 의문사", version:"" },
                     { title:"Chapter 11 문장의 종류", version:"" }
                 ];
-
+                
                 let liText = "";
                 list.forEach(item => {
                     if(item.version) {
@@ -55,7 +55,7 @@
                 targetUl.innerHTML = liText;
             }
 
-            function createEnglishListSaltybooksMiddleSchool() {
+            function createEnglishList_SaltybooksMiddleSchool() {
                 const list = [
                     { title:"중학1 day1", version:'saltybooks_middleSchoolEng_2_m1_1', youtube: 'https://youtu.be/wyJNWiqM1wc' },
                     { title:"중학1 day2", version:'saltybooks_middleSchoolEng_2_m1_2', youtube: 'https://youtu.be/KIBP6nBuDXk' },
@@ -87,7 +87,7 @@
                 targetUl.innerHTML = liText;
             }
 
-            function createEnglishListNeInsightLinkStarterL1() {
+            function createEnglishList_NeInsightLinkStarterL1() {
                 const list = [
                     { title: "L01.Where do wild animals live?", version: "ne_insightLink_starter_l1_01" },
                     { title: "L02.Swan lake", version: "ne_insightLink_starter_l1_02" },
