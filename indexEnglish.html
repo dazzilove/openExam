@@ -10,20 +10,35 @@
         <script type="text/javascript" src="/openExam/js/default.js"></script>
         <script>
             window.onload = function() {
-                createEnglishList_ShinsagoGrammarWiseStarter();
-                createEnglishList_SaltybooksMiddleSchool();
-                createEnglishList_NeInsightLinkStarterL1();
+                createList_ShinsagoGrammarWiseStarter();
+                createList_NeInsightLinkStarterL1();
+                createList_SaltybooksMiddleSchool();
             }
 
-            function goExamForEnglish(version) {
+            function createList_ShinsagoGrammarWiseStarter() {
+                var shinsagoGrammarWiseStarter = ShinsagoGrammarWiseStarter();
+                shinsagoGrammarWiseStarter.createList();
+            }
+
+            function createList_NeInsightLinkStarterL1() {
+                var  neInsightLinkStarterL1 = NeInsightLinkStarterL1();
+                neInsightLinkStarterL1.createList();
+            }
+
+            function createList_SaltybooksMiddleSchool() {
+                var saltybooksMiddleSchool = SaltybooksMiddleSchool();
+                saltybooksMiddleSchool.createList();
+            }
+
+            function goExamToMean(version) {
                 location.href = location.origin + "/openExam/english.html?version=" + version;
             }
 
-            function goExamForEnglishToWordSelect(version) {
+            function goExamToWordSelect(version) {
                 location.href = location.origin + "/openExam/englishWordSelect.html?version=" + version;
             }
 
-            function createEnglishList_ShinsagoGrammarWiseStarter() {
+            var ShinsagoGrammarWiseStarter = function() {
                 const list = [
                     { title:"Chapter 01 명사", version:"" },
                     { title:"Chapter 02 대명사", version:"" },
@@ -37,57 +52,29 @@
                     { title:"Chapter 10 의문사", version:"" },
                     { title:"Chapter 11 문장의 종류", version:"" }
                 ];
-                
-                let liText = "";
-                list.forEach(item => {
-                    if(item.version) {
-                        liText += ` <li>
-                                        ${item.title}
-                                        - <a href="javascript:goExamForEnglish('${item.version}')">Mean</a>
-                                        , <a href="javascript:goExamForEnglishToWordSelect('${item.version}')">Word</a>
-                                    </li>`;
-                    } else {
-                        liText += `<li>${item.title}</li>`;
+
+                return {
+                    createList: function() {
+                        let liText = "";
+                        list.forEach(item => {
+                            if(item.version) {
+                                liText += ` <li>
+                                                ${item.title}
+                                                - <a href="javascript:goExamToMean('${item.version}')">Mean</a>
+                                                , <a href="javascript:goExamToWordSelect('${item.version}')">Word</a>
+                                            </li>`;
+                            } else {
+                                liText += `<li>${item.title}</li>`;
+                            }
+                        });
+                        let targetUl = document.querySelector("#english_ShinsagoGrammarWiseStarter");
+                        targetUl.innerHTML = "";
+                        targetUl.innerHTML = liText;
                     }
-                });
-                let targetUl = document.querySelector("#english_ShinsagoGrammarWiseStarter");
-                targetUl.innerHTML = "";
-                targetUl.innerHTML = liText;
+                }
             }
 
-            function createEnglishList_SaltybooksMiddleSchool() {
-                const list = [
-                    { title:"중학1 day1", version:'saltybooks_middleSchoolEng_2_m1_1', youtube: 'https://youtu.be/wyJNWiqM1wc' },
-                    { title:"중학1 day2", version:'saltybooks_middleSchoolEng_2_m1_2', youtube: 'https://youtu.be/KIBP6nBuDXk' },
-                    { title:"중학1 day3", version:'saltybooks_middleSchoolEng_2_m1_3', youtube: 'https://youtu.be/qxDo1A388qA' },
-                    { title:"중학1 day4", version:'saltybooks_middleSchoolEng_2_m1_4', youtube: 'https://youtu.be/ucH4Zcc4mBc' },
-                    { title:"중학1 day5", version:'saltybooks_middleSchoolEng_2_m1_5', youtube: 'https://youtu.be/4AmCagv2TRA' },
-                    { title:"중학1 day6", version:'saltybooks_middleSchoolEng_2_m1_6', youtube: 'https://youtu.be/neH9o2QU47E' },
-                    { title:"중학1 day7", version:'saltybooks_middleSchoolEng_2_m1_7', youtube: 'https://youtu.be/8YGOSoVFTOA' },
-                    { title:"중학1 day8", version:'saltybooks_middleSchoolEng_2_m1_8', youtube: 'https://youtu.be/_L6pU9GObOs' },
-                    { title:"중학1 day9", version:'saltybooks_middleSchoolEng_2_m1_9', youtube: 'https://youtu.be/QfUZSvjVjHY' },
-                    { title:"중학1 day10", version:'saltybooks_middleSchoolEng_2_m1_10', youtube: 'https://youtu.be/vXxk15BCQyk' },
-                    { title:"중학1 day11", version:'saltybooks_middleSchoolEng_2_m1_11', youtube: 'https://youtu.be/38doKGC8soY' },
-                    { title:"중학1 day12", version:'saltybooks_middleSchoolEng_2_m1_12', youtube: 'https://youtu.be/ib6ueiZzDAU' },
-                    { title:"중학1 day13", version:'saltybooks_middleSchoolEng_2_m1_13', youtube: 'https://youtu.be/RWKQ8Ni7bnU' },
-                    { title:"중학1 day14", version:'saltybooks_middleSchoolEng_2_m1_14', youtube: 'https://youtu.be/xaAQar6Cx8w' },
-                    { title:"중학1 day15", version:'saltybooks_middleSchoolEng_2_m1_15', youtube: 'https://youtu.be/5UeXf5X_XpI' }
-                ];
-
-                let liText = "";
-                list.forEach(item => {
-                    liText += `<li>
-                                    ${item.title}
-                                    - <a href="javascript:goExamForEnglish('${item.version}')">Mean</a>
-                                    , <a href="javascript:goExamForEnglishToWordSelect('${item.version}')">Word</a>
-                               </li>`;
-                });
-                let targetUl = document.querySelector("#english_SaltybooksMiddleSchoolEng");
-                targetUl.innerHTML = "";
-                targetUl.innerHTML = liText;
-            }
-
-            function createEnglishList_NeInsightLinkStarterL1() {
+            var NeInsightLinkStarterL1 = function() {
                 const list = [
                     { title: "L01.Where do wild animals live?", version: "ne_insightLink_starter_l1_01" },
                     { title: "L02.Swan lake", version: "ne_insightLink_starter_l1_02" },
@@ -107,17 +94,57 @@
                     { title: "L16.Why are eggs oval-shaped?", version: "ne_insightLink_starter_l1_16" }
                 ];
 
-                let liText = "";
-                list.forEach(item => {
-                    liText += `<li>
-                                    ${item.title}
-                                    - <a href="javascript:goExamForEnglish('${item.version}')">Mean</a>
-                                    , <a href="javascript:goExamForEnglishToWordSelect('${item.version}')">Word</a>
-                              </li>`;
-                });
-                let targetUl = document.querySelector("#english_NeInsightLinkStarterL1");
-                targetUl.innerHTML = "";
-                targetUl.innerHTML = liText;
+                return {
+                    createList: function() {
+                        let liText = "";
+                        list.forEach(item => {
+                            liText += `<li>
+                                            ${item.title}
+                                            - <a href="javascript:goExamToMean('${item.version}')">Mean</a>
+                                            , <a href="javascript:goExamToWordSelect('${item.version}')">Word</a>
+                                       </li>`;
+                        });
+                        let targetUl = document.querySelector("#english_NeInsightLinkStarterL1");
+                        targetUl.innerHTML = "";
+                        targetUl.innerHTML = liText;
+                    }
+                }
+            }
+
+            var SaltybooksMiddleSchool = function() {
+                const list = [
+                    { title:"중학1 day1", version:'saltybooks_middleSchoolEng_2_m1_1', youtube: 'https://youtu.be/wyJNWiqM1wc' },
+                    { title:"중학1 day2", version:'saltybooks_middleSchoolEng_2_m1_2', youtube: 'https://youtu.be/KIBP6nBuDXk' },
+                    { title:"중학1 day3", version:'saltybooks_middleSchoolEng_2_m1_3', youtube: 'https://youtu.be/qxDo1A388qA' },
+                    { title:"중학1 day4", version:'saltybooks_middleSchoolEng_2_m1_4', youtube: 'https://youtu.be/ucH4Zcc4mBc' },
+                    { title:"중학1 day5", version:'saltybooks_middleSchoolEng_2_m1_5', youtube: 'https://youtu.be/4AmCagv2TRA' },
+                    { title:"중학1 day6", version:'saltybooks_middleSchoolEng_2_m1_6', youtube: 'https://youtu.be/neH9o2QU47E' },
+                    { title:"중학1 day7", version:'saltybooks_middleSchoolEng_2_m1_7', youtube: 'https://youtu.be/8YGOSoVFTOA' },
+                    { title:"중학1 day8", version:'saltybooks_middleSchoolEng_2_m1_8', youtube: 'https://youtu.be/_L6pU9GObOs' },
+                    { title:"중학1 day9", version:'saltybooks_middleSchoolEng_2_m1_9', youtube: 'https://youtu.be/QfUZSvjVjHY' },
+                    { title:"중학1 day10", version:'saltybooks_middleSchoolEng_2_m1_10', youtube: 'https://youtu.be/vXxk15BCQyk' },
+                    { title:"중학1 day11", version:'saltybooks_middleSchoolEng_2_m1_11', youtube: 'https://youtu.be/38doKGC8soY' },
+                    { title:"중학1 day12", version:'saltybooks_middleSchoolEng_2_m1_12', youtube: 'https://youtu.be/ib6ueiZzDAU' },
+                    { title:"중학1 day13", version:'saltybooks_middleSchoolEng_2_m1_13', youtube: 'https://youtu.be/RWKQ8Ni7bnU' },
+                    { title:"중학1 day14", version:'saltybooks_middleSchoolEng_2_m1_14', youtube: 'https://youtu.be/xaAQar6Cx8w' },
+                    { title:"중학1 day15", version:'saltybooks_middleSchoolEng_2_m1_15', youtube: 'https://youtu.be/5UeXf5X_XpI' }
+                ];
+
+                return {
+                    createList: function() {
+                        let liText = "";
+                        list.forEach(item => {
+                            liText += `<li>
+                                            ${item.title}
+                                            - <a href="javascript:goExamToMean('${item.version}')">Mean</a>
+                                            , <a href="javascript:goExamToWordSelect('${item.version}')">Word</a>
+                                       </li>`;
+                        });
+                        let targetUl = document.querySelector("#english_SaltybooksMiddleSchoolEng");
+                        targetUl.innerHTML = "";
+                        targetUl.innerHTML = liText;
+                    }
+                }
             }
         </script>
     </head>
@@ -181,7 +208,7 @@
                     <div class="accordion-body">
                         <ul>
                             <li>
-                                <a href="javascript:goExamForEnglish('saltybooks_middleSchoolEng_1_e')">초등 필수(398)</a>
+                                <a href="javascript:goExamToMean('saltybooks_middleSchoolEng_1_e')">초등 필수(398)</a>
                                 <ul>
                                     <li><a href="https://youtu.be/KPld1CeRehI" target="_blank">Youtube - 초등 필수영단어 01</a></li>
                                     <li><a href="https://youtu.be/mrJL4_pZgho" target="_blank">Youtube - 초등 필수영단어 02</a></li>
