@@ -14,21 +14,60 @@
             let nowExamList = [];
             let nowExamIdx = 0;
             let resultExamList = [];
+            let versionList = [];
 
             window.onload = function() {
-                fetch(getJsonFilePath())
-                    .then(response => response.json())
-                    .then(json => {
-                        examTitle = json.title;
-                        examList = [];
-                        examList = json.list;
-                        initExamBasicInfo();
-                        initViewAll()
+                examList = [];
+                
+                const versionPrefix = getParameter("versionPrefix");
+                const versions = getParameter("versions");
+                const version = getParameter("version");   
+
+                if (version) {
+                    fetch(getJsonFilePath(version))
+                        .then(response => response.json())
+                        .then(json => {
+                            examTitle = json.title;
+                            examList = json.list;
+                            initExamBasicInfo();
+                            initViewAll()
+                        });
+                } else {
+                    versionList = [];
+                    versions.split(",").forEach(item => {
+                        versionList.push({ version: item, fetchCompleted:false });
                     });
+                    versionList.forEach(item => {
+                        fetch(getJsonFilePathWithVersionPrefix(versionPrefix, item.version))
+                            .then(response => response.json())
+                            .then(json => {
+                                examTitle = json.title;
+
+                                const nowExamListLength = examList.length;
+                                let tempExamList = json.list;
+                                tempExamList.forEach(tempItem => {
+                                    tempItem.seq = nowExamListLength + tempItem.seq;
+                                });
+                                examList = examList.concat(json.list);
+
+                                if (versionList.filter(item => item.fetchCompleted).length = versionList.length) {
+                                    initExamBasicInfo();
+                                    initViewAll();
+                                }
+                            });
+                    });
+                }
             }
 
-            function handleBtnExamMean(that) {
-                location.href = location.origin + "/openExam/english.html?version=" + getParameter("version");
+            function handleBtnExamMean(that) {                
+                const versionPrefix = getParameter("versionPrefix");
+                const versions = getParameter("versions");
+                const version = getParameter("version");   
+                if (version) {
+                    location.href = location.origin + "/openExam/english.html?version=" + version;
+                } else {
+                    location.href = location.origin + "/openExam/english.html?versionPrefix=" + versionPrefix + "&versions=" + versions;
+                }
             }
 
             function handleBtnExamStart(that) {
@@ -272,8 +311,11 @@
                 tbodyObj.innerHTML = allTrText;
             }
 
-            function getJsonFilePath() {
-                const version = getParameter("version");
+            function getJsonFilePathWithVersionPrefix(versionPrefix, version) {
+                return getJsonFilePath(versionPrefix + version);
+            }
+
+            function getJsonFilePath(version) {
                 const path = location.pathname.replace("/englishWordSelect.html", "/examJsonData/" + version + ".json");
                 return location.origin + path;
             }
