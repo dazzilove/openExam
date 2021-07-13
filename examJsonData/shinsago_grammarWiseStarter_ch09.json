@@ -42,14 +42,14 @@
         { "seq": 39,  "word": "smile", "part": "", "mean": "미소(짓다)" }, 
         { "seq": 40,  "word": "need", "part": "", "mean": "필요(하다)" }, 
         { "seq": 41,  "word": "eat out", "part": "", "mean": "외식하다" }, 
-        { "seq": 42,  "word": "lie", "part": "", "mean": "넘어지다" }, 
-        { "seq": 43,  "word": "fall down", "part": "", "mean": "훔치다" }, 
-        { "seq": 44,  "word": "steal", "part": "", "mean": "빌리다" }, 
-        { "seq": 45,  "word": "borrow", "part": "", "mean": "가난한, 불쌍한" }, 
+        { "seq": 42,  "word": "lie", "part": "", "mean": "거짓말(하다)" }, 
+        { "seq": 43,  "word": "fall down", "part": "", "mean": "넘어지다" }, 
+        { "seq": 44,  "word": "steal", "part": "", "mean": "훔치다" }, 
+        { "seq": 45,  "word": "borrow", "part": "", "mean": "빌리다" }, 
         { "seq": 46,  "word": "poor", "part": "", "mean": "가난한, 불쌍한" }, 
         { "seq": 47,  "word": "alone", "part": "", "mean": "혼자" }, 
         { "seq": 48,  "word": "early", "part": "", "mean": "일찍" }, 
         { "seq": 49,  "word": "well", "part": "", "mean": "잘" }, 
-        { "seq": 50,  "word": "on foot", "part": "", "mean": "걸어서" }    
+        { "seq": 50,  "word": "on foot", "part": "", "mean": "걸어서" }         
     ]
 }
