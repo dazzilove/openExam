@@ -181,7 +181,8 @@
                         list.forEach(item => {
                             liText += `<li>
                                             ${item.title}
-                                            - <a href="javascript:goExamToMean('${item.version}')">Mean</a>
+                                            - <a href="${item.youtube}" target="_blank">Youtube</a>
+                                            , <a href="javascript:goExamToMean('${item.version}')">Mean</a>
                                             , <a href="javascript:goExamToWordSelect('${item.version}')">Word</a>
                                        </li>`;
                         });
