@@ -1,0 +1,115 @@
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<style>
+			.title {
+				width: 100%;
+				padding: 10px;
+				margin-bottom: 15px;
+				background-color: #EEEEEE;
+				font-weight: bolder;
+				font-size: 20px;
+			}
+			.chapterDiv {
+				border: solid 1px #999999;
+				border-radius: 10px;
+				box-shadow: 0 0 0 1px #000; 
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+			.chapterTitle {
+				font-weight: bolder;
+				border-bottom: solid 1px #777777;
+				padding-bottom: 6px;
+			}
+		</style>
+		<script>
+			const baseUrl = "http://mp3.cedubook.com/1001basic/";
+			const agendaList = [
+				[1, 5],
+				[2, 7],
+				[3, 6],
+				[4, 6],
+				[5, 4],
+				[6, 5],
+				[7, 6],
+				[8, 6],
+				[9, 4],
+				[10, 7],
+				[11, 6],
+				[12, 4],
+				[13, 5],
+				[14, 7],
+				[15, 6],
+				[16, 9],
+				[17, 5],
+				[18, 8]
+			];
+
+			let listeningList = [];
+			function init() {
+				let targetDiv = document.getElementById("agendaList");
+
+				agendaList.forEach(item => {
+					const itemNo = item[0];
+					const detailCnt = item[1];
+					const itemNoStr = itemNo < 10 ? "0"+itemNo : ""+itemNo;
+
+					let chatpterDivObj = document.createElement("div");	
+					chatpterDivObj.className = "chapterDiv";
+					targetDiv.append(chatpterDivObj);
+
+					let titleDivObj = document.createElement("div");
+					titleDivObj.append("CHAPTER " + itemNo);
+					titleDivObj.className = "chapterTitle";
+					chatpterDivObj.append(titleDivObj);
+
+					let ulObj = document.createElement("ul");
+					chatpterDivObj.append(ulObj);
+
+					for(var i=0; i<detailCnt; i++) {
+						const detailNo = i + 1;
+						const audioUrl = `${baseUrl}ch${itemNoStr}_${detailNo}.mp3`;
+
+						listeningList.push(audioUrl);
+						const agendaIndex = listeningList.length - 1;
+
+						const titleObj = document.createTextNode(audioUrl);
+
+						const audioObj = document.createElement("audio");	
+						audioObj.id = `audio_agenda_index_${agendaIndex}`;			
+						audioObj.src = audioUrl;
+						audioObj.controls = true;
+						audioObj.setAttribute("data-agenda-index", agendaIndex);
+						audioObj.addEventListener("ended", function(e) {
+							myFun(e);
+						});
+
+						let liObj = document.createElement("li");
+						ulObj.append(liObj);
+						liObj.append(titleObj);
+						liObj.append(audioObj);
+
+					}				
+				});	
+			}
+			function myFun(e) {
+				var dataAgendaIndex = e.target.getAttribute("data-agenda-index");
+				console.log('dataAgendaIndex', dataAgendaIndex);
+				if (dataAgendaIndex < listeningList.length-1) {
+					var nextAudioId = `audio_agenda_index_${Number(dataAgendaIndex)+1}`;
+					var nextAudio = document.getElementById(nextAudioId);
+					nextAudio.play();
+				}
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div style="padding: 20px;">
+			<div class="title">[천일문 Basic 3.0] Listening</div>
+			<div id="agendaList"></div>
+		</div>
+	</body>
+</html>
+
